@@ -1,25 +1,21 @@
 let count = 0;
-let setResult = (selector, mess, isOk, noCount) => {
 
-	let $block = $(selector);
+let doit = async (db, $setTo) => {
 
-	$block
-		.text(mess)
-		.addClass(isOk ? 'success' : 'error');
+	let setResult = (selector, mess, isOk, noCount) => {
 
-	if (!noCount)
-		$block.before($('<b/>', {
-			text: `TEST #${++count}`,
-			class: 'test_number'
-		}));
-};
+		let $block = $setTo.find(selector);
 
+		$block
+			.text(mess)
+			.addClass(isOk ? 'success' : 'error');
 
-$(function () {
-	"use strict";
-
-	// let db = new DbSqlClass(DbSqlClass.driverConst().WebSQL);
-	let db = new DbSqlClass();
+		if (!noCount)
+			$block.before($('<b/>', {
+				text: `TEST #${++count}`,
+				class: 'test_number'
+			}));
+	};
 
 	let constant = db.queryConst();
 
@@ -42,98 +38,118 @@ $(function () {
 
 	const arInsert = [[1, 'text1'], [2, 'text2', 'ZZZ']];
 
-	let doit = async () => {
-		let isOK, res, isEmpty;
+	let isOK, res, isEmpty;
 
-		try {
-			await db.drop();
+	try {
+		await db.drop();
 
-			await db.init({test: fieldsTableTets});
+		await db.init({test: fieldsTableTets});
 
-			setResult('.connect_status', 'CONNECT OK', true);
+		setResult('.connect_status', 'CONNECT OK', true);
 
-			isEmpty = await db.isEmpty();
+		isEmpty = await db.isEmpty();
 
-			setResult('.db_empty', 'DATABASE IS EMPTY ' + (isEmpty ? 'YES' : 'NO'), !isEmpty);
+		setResult('.db_empty', 'DATABASE IS EMPTY ' + (isEmpty ? 'YES' : 'NO'), !isEmpty);
 
-			await db.insert('test', ['id', 'text', 'comment'], arInsert);
+		await db.insert('test', ['id', 'text', 'comment'], arInsert);
 
-			setResult('.insert_to_test_table', 'INSERT INTO `test`', true);
+		setResult('.insert_to_test_table', 'INSERT INTO `test`', true);
 
-			res = await db.getByPk('test', 1);
-			isOK = res.id === 1 && res.text === 'text1' && res.comment === null;
+		res = await db.getByPk('test', 1);
+		isOK = res.id === 1 && res.text === 'text1' && res.comment === null;
 
-			setResult('.get_by_pk', `GET BY PK ${isOK ? 'OK' : 'NO' }`, isOK);
+		setResult('.get_by_pk', `GET BY PK ${isOK ? 'OK' : 'NO' }`, isOK);
 
-			res = await db.getByRequire('test', 'text', 'text2');
-			isOK = res.id === 2 && res.text === 'text2' && res.comment === 'ZZZ';
+		res = await db.getByRequire('test', 'text', 'text2');
+		isOK = res.id === 2 && res.text === 'text2' && res.comment === 'ZZZ';
 
-			setResult('.get_by_require', `GET BY REQUIRE INDEX ${isOK ? 'OK' : 'NO' }`, isOK);
+		setResult('.get_by_require', `GET BY REQUIRE INDEX ${isOK ? 'OK' : 'NO' }`, isOK);
 
-			res = await db.getAll('test');
+		res = await db.getAll('test');
 
-			if (!res || !res.length) throw new Error('Empty table after insert');
+		if (!res || !res.length) throw new Error('Empty table after insert');
 
-			let sumIds = res.reduce((prev, next) => (prev.id || 0) + (next.id || 0));
-			isOK = sumIds === 3;
-			setResult('.get_all', `GET ALL ${isOK ? 'OK' : 'NO' }`, isOK);
+		let sumIds = res.reduce((prev, next) => (prev.id || 0) + (next.id || 0));
+		isOK = sumIds === 3;
+		setResult('.get_all', `GET ALL ${isOK ? 'OK' : 'NO' }`, isOK);
 
-			await db.updateByPk('test', 1, {comment: 'UPDATE'});
-			res = await db.getByPk('test', 1);
-			isOK = res.id === 1 && res.text === 'text1' && res.comment === 'UPDATE';
+		await db.updateByPk('test', 1, {comment: 'UPDATE'});
+		res = await db.getByPk('test', 1);
+		isOK = res.id === 1 && res.text === 'text1' && res.comment === 'UPDATE';
 
-			setResult('.update_by_pk', `UPDATE BY PK ${isOK ? 'OK' : 'NO' }`, isOK);
+		setResult('.update_by_pk', `UPDATE BY PK ${isOK ? 'OK' : 'NO' }`, isOK);
 
-			await db.upInsert('test', {id: 2, text: 'UPDATE'});
+		await db.upInsert('test', {id: 2, text: 'UPDATE'});
 
-			res = await db.getByPk('test', 2);
-			isOK = res.id === 2 && res.text === 'UPDATE' && !res.comment;
+		res = await db.getByPk('test', 2);
+		isOK = res.id === 2 && res.text === 'UPDATE' && !res.comment;
 
-			setResult('.up_insert_update', `UPDATE OR INSERT (update) ${isOK ? 'OK' : 'NO' }`, isOK);
+		setResult('.up_insert_update', `UPDATE OR INSERT (update) ${isOK ? 'OK' : 'NO' }`, isOK);
 
-			await db.upInsert('test', {id: 3, text: 'INSERT'});
-			res = await db.getByPk('test', 3);
-			isOK = res.id === 3 && res.text === 'INSERT';
+		await db.upInsert('test', {id: 3, text: 'INSERT'});
+		res = await db.getByPk('test', 3);
+		isOK = res.id === 3 && res.text === 'INSERT';
 
-			setResult('.up_insert_insert', `UPDATE OR INSERT (insert) ${isOK ? 'OK' : 'NO' }`, isOK);
+		setResult('.up_insert_insert', `UPDATE OR INSERT (insert) ${isOK ? 'OK' : 'NO' }`, isOK);
 
-			await db.removeByPk('test', 3);
-			res = await db.getByPk('test', 3);
-			isOK = !res;
+		await db.removeByPk('test', 3);
+		res = await db.getByPk('test', 3);
+		isOK = !res;
 
-			setResult('.remove_by_pk', `REMOVE BY PK ${isOK ? 'OK' : 'NO' }`, isOK);
+		setResult('.remove_by_pk', `REMOVE BY PK ${isOK ? 'OK' : 'NO' }`, isOK);
 
-			await db.removeAll('test');
-			res = await db.getAll('test');
-			isOK = !Boolean(res.length);
+		await db.removeAll('test');
+		res = await db.getAll('test');
+		isOK = !Boolean(res.length);
 
-			setResult('.remove_all', `REMOVE ALL (insert) ${isOK ? 'OK' : 'NO' }`, isOK);
+		setResult('.remove_all', `REMOVE ALL (insert) ${isOK ? 'OK' : 'NO' }`, isOK);
 
-			db.close();
+		db.close();
 
-			await db.drop();
+		await db.drop();
 
-			await db.init();
+		await db.init();
 
-			isOK = await db.isEmpty();
+		isOK = await db.isEmpty();
 
-			setResult('.check_drop_db', `CHECK DROP DATABAE ${isOK ? 'OK' : 'NO' }`, isOK);
+		setResult('.check_drop_db', `CHECK DROP DATABAE ${isOK ? 'OK' : 'NO' }`, isOK);
 
-			db.close();
+		db.close();
 
-			setResult('.the_end', 'THE END', true, true);
+		setResult('.the_end', 'THE END', true, true);
 
-		} catch (e) {
-			if (e) {
-				setResult('.error', e.message || 'NULL MESSAGE');
-			}
-			console.log('error ', e);
-			throw new Error(e);
+	} catch (e) {
+		if (e) {
+			setResult('.error', e.message || 'NULL MESSAGE');
 		}
+		console.log('error ', e);
+		throw new Error(e);
+	}
+};
 
-	};
+const differentDrive = async () => {
+	let db = new BrowerDataBaseClass();
+	let driveConst = BrowerDataBaseClass.driverConst();
+	let $frame = $('#frame');
+	let $setAuto = $('#auto');
+	let $setWebsql = $('#web_sql');
+	let $setInndexedDb = $('#index_db');
 
-	doit();
+	$setAuto.html($frame.html());
+	$setWebsql.html($frame.html());
+	$setInndexedDb.html($frame.html());
 
+	await doit(db, $setAuto);
+
+	db = new BrowerDataBaseClass({}, driveConst.IndexedDb);
+	await doit(db, $setInndexedDb);
+
+	db = new BrowerDataBaseClass({}, driveConst.WebSQL);
+	await doit(db, $setWebsql);
+};
+
+$(function () {
+	"use strict";
+	differentDrive();
 });
 

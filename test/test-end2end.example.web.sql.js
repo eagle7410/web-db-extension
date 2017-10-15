@@ -5,15 +5,12 @@ const webdriver = require('selenium-webdriver');
 
 require('geckodriver');
 require('chromedriver');
-require('operadriver');
 
 const fs = require('fs');
 const By = webdriver.By;
 const until = webdriver.until;
 const driver = new webdriver.Builder()
-	// .forBrowser('opera')
-	.forBrowser('firefox')
-	// .forBrowser('chrome')
+	.forBrowser('chrome')
 	.build();
 
 const GoodResult = require('./data/good_result');
@@ -30,7 +27,7 @@ let browserGetResult = async (call) => {
 				var result = {};
 
 				selectors.forEach(function (sel) {
-					result[sel] = document.querySelector('.' + sel).innerHTML;
+					result[sel] = $('#web_sql').find('.' + sel).html();
 				});
 
 				call(result);
@@ -50,7 +47,7 @@ let browserGetResult = async (call) => {
 
 };
 
-describe('End-to-end', function(suite) {
+describe('WebSql', function(suite) {
 	this.timeout(15000);
 	let result;
 

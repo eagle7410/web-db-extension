@@ -4,10 +4,10 @@ const path = require('path');
 const MinifyPlugin = require("babel-minify-webpack-plugin");
 
 module.exports = {
-	entry: __dirname +"/src/DBSQL.js",
+	entry: __dirname +"/src/BrowerDataBase.js",
 	output: {
 		path: __dirname + "/dist",
-		filename: "wed.sql.js"
+		filename: "browser.database.min.js"
 	},
 	devtool: 'source-map',
 	module: {
@@ -28,10 +28,7 @@ module.exports = {
 		]
 	},
 	plugins: [
-		new webpack.optimize.UglifyJsPlugin({
-			include: /\.min\.js$/,
-			minimize: true
-		})
+		new MinifyPlugin()
 	],
 	devServer: {
 		port : 3001,

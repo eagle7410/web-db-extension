@@ -178,11 +178,7 @@ export default class WebSQL extends DriverInterface {
 
 		return new Promise((ok, bad) => {
 			that._select('sqlite_master', '*', 'type="table" AND name NOT IN ("__WebKitDatabaseInfoTable__", "sqlite_sequence")', 1)
-				.then(rows => {
-					// TODO: clear
-					console.log('rows', rows);
-					ok(Boolean(!rows.length))
-				})
+				.then(rows => ok(Boolean(!rows.length)))
 				.catch(err => bad(err));
 		});
 
