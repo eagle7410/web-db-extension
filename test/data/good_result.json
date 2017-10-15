@@ -1,0 +1,16 @@
+{
+	"error" : "",
+	"connect_status" : "CONNECT OK",
+	"db_empty" : "DATABASE IS EMPTY NO",
+	"insert_to_test_table" : "INSERT INTO `test`",
+	"get_by_pk" : "GET BY PK OK",
+	"get_by_require" : "GET BY REQUIRE INDEX OK",
+	"get_all" : "GET ALL OK",
+	"update_by_pk" : "UPDATE BY PK OK",
+	"up_insert_update" : "UPDATE OR INSERT (update) OK",
+	"up_insert_insert" : "UPDATE OR INSERT (insert) OK",
+	"remove_by_pk" : "REMOVE BY PK OK",
+	"remove_all" : "REMOVE ALL (insert) OK",
+	"check_drop_db" : "CHECK DROP DATABAE OK",
+	"the_end" : "THE END"
+}
