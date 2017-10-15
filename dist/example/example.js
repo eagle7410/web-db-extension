@@ -18,7 +18,7 @@ let setResult = (selector, mess, isOk, noCount) => {
 $(function () {
 	"use strict";
 
-	// let db = new DbSqlClass(DbSqlClass.driverConst().IndexedDb);
+	// let db = new DbSqlClass(DbSqlClass.driverConst().WebSQL);
 	let db = new DbSqlClass();
 
 	let constant = db.queryConst();
@@ -110,7 +110,9 @@ $(function () {
 			setResult('.remove_all', `REMOVE ALL (insert) ${isOK ? 'OK' : 'NO' }`, isOK);
 
 			db.close();
+
 			await db.drop();
+
 			await db.init();
 
 			isOK = await db.isEmpty();
@@ -122,7 +124,9 @@ $(function () {
 			setResult('.the_end', 'THE END', true, true);
 
 		} catch (e) {
-			setResult('.error', e.message);
+			if (e) {
+				setResult('.error', e.message || 'NULL MESSAGE');
+			}
 			console.log('error ', e);
 			throw new Error(e);
 		}

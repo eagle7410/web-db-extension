@@ -2,6 +2,10 @@ import WebSQL from './drivers/web-sql/WebSQL'
 import IndexedDb from './drivers/indexed-db/IndexedDb'
 import DriverInterface from './drivers/DriverInterface'
 
+/**
+ * Class for work this browsers databases.
+ * @class
+ */
 class DBSQL {
 	constructor(driver) {
 		const that = this;
@@ -39,7 +43,7 @@ class DBSQL {
 	}
 
 	/**
-	 *
+	 * Constant drivers.
 	 * @returns {{WebSQL : int, IndexedDb: int}}
 	 */
 	static driverConst() {
@@ -52,8 +56,8 @@ class DBSQL {
 	}
 
 	/**
-	 *
-	 * @returns {{ASC: number, DESK: number, TYPE_INT: string, TYPE_INTEGER: string, TYPE_TINYINT: string, TYPE_SMALLINT: string, TYPE_MEDIUMINT: string, TYPE_BIGINT: string, TYPE_TEXT: string, TYPE_CHAR: string, TYPE_VARCHAR: string, TYPE_CHARACTER: string, TYPE_REAL: string, TYPE_DOUBLE_FLOAT: string, TYPE_DOUBLE: string, TYPE_DOUBLE_PRECISION: string, TYPE_DATETIME: string, TYPE_DATE: string, TYPE_BOOLEAN: string, TYPE_NUMERIC: string, TYPE_DECIMAL: string}}
+	 * Query constants.
+	 * @returns {{ASC: string, DESK: string, TYPE_INT: string, TYPE_INTEGER: string, TYPE_TINYINT: string, TYPE_SMALLINT: string, TYPE_MEDIUMINT: string, TYPE_BIGINT: string, TYPE_TEXT: string, TYPE_CHAR: string, TYPE_VARCHAR: string, TYPE_CHARACTER: string, TYPE_REAL: string, TYPE_DOUBLE_FLOAT: string, TYPE_DOUBLE: string, TYPE_DOUBLE_PRECISION: string, TYPE_DATETIME: string, TYPE_DATE: string, TYPE_BOOLEAN: string, TYPE_NUMERIC: string, TYPE_DECIMAL: string}}
 	 */
 	queryConst() {
 		return this._driver.queryConst();
@@ -145,5 +149,5 @@ class DBSQL {
 	}
 }
 
-window.DbSqlClass = IndexedDb;
+window.DbSqlClass = WebSQL;
 

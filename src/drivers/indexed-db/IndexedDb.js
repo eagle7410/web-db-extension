@@ -6,7 +6,7 @@ import DriverInterface from "../DriverInterface";
 
 export default class IndexedDb extends DriverInterface {
 	constructor(params = {}) {
-		super();
+		super(params);
 		const that = this;
 
 		that._db = null;
@@ -28,6 +28,10 @@ export default class IndexedDb extends DriverInterface {
 		return Boolean(this._db !== null);
 	}
 
+	/**
+	 * Drop database.
+	 * @returns {Promise}
+	 */
 	drop() {
 		let that = this;
 
@@ -44,11 +48,12 @@ export default class IndexedDb extends DriverInterface {
 	}
 
 	/**
+	 * Init database. If database is empty crete tables
 	 *
-	 * @param objectTables {object}
+	 * @param objectTables {object} Object structure tables. When key is name table, values is structure fields.
 	 * @returns {Promise}
 	 */
-	init(objectTables) {
+	init(objectTables = {}) {
 		const that = this;
 
 		return new Promise((ok, bad) => {
@@ -75,6 +80,13 @@ export default class IndexedDb extends DriverInterface {
 		})
 	}
 
+	/**
+	 *
+	 * @param db
+	 * @param table
+	 * @param fields
+	 * @private
+	 */
 	_createTable(db, table, fields) {
 		let that = this;
 		let fieldsIndexs = [];
@@ -113,6 +125,13 @@ export default class IndexedDb extends DriverInterface {
 		});
 	}
 
+	/**
+	 * Insert record to database.
+	 * @param {string} table Table name
+	 * @param {array} fields Array name fields.
+	 * @param {array} arInsert Array values
+	 * @returns {Promise}
+	 */
 	insert(table, fields, arInsert) {
 		let that = this;
 
@@ -145,7 +164,11 @@ export default class IndexedDb extends DriverInterface {
 		let that = this;
 		return new Promise((ok, bad) => ok(that._isEmpty));
 	}
-
+	/**
+	 * Get all record from table
+	 * @param {string} table Table name
+	 * @returns {Promise}
+	 */
 	getAll(table) {
 		let that = this;
 
@@ -160,6 +183,12 @@ export default class IndexedDb extends DriverInterface {
 		});
 	}
 
+	/**
+	 * Get record by primary key value.
+	 * @param {string} table Table name
+	 * @param {*} pkValue Primary key value.
+	 * @returns {Promise}
+	 */
 	getByPk(table, pkValue) {
 		let that = this;
 
@@ -174,6 +203,13 @@ export default class IndexedDb extends DriverInterface {
 		});
 	}
 
+	/**
+	 * Get record by require index.
+	 * @param {string} table Table name
+	 * @param {string}indexRequire Name index what be require.
+	 * @param {*} indexValue Value index
+	 * @returns {Promise}
+	 */
 	getByRequire(table, indexRequire, indexValue) {
 		let that = this;
 
@@ -190,10 +226,9 @@ export default class IndexedDb extends DriverInterface {
 	}
 
 	/**
-	 *
-	 * @param table {string}
-	 * @param setFields {string}
-	 * @param where {string| null}
+	 * Update or insert record to table.
+	 * @param {string} table Table name
+	 * @param {object} newFields Object insert or update.
 	 * @returns {Promise}
 	 */
 	upInsert(table, newFields) {
@@ -210,6 +245,13 @@ export default class IndexedDb extends DriverInterface {
 		});
 	}
 
+	/**
+	 * Update record by primary key.
+	 * @param {string} table Table name
+	 * @param {*} pkValue Primary key value.
+	 * @param {object} changeFields Object change fields with new values.
+	 * @returns {Promise}
+	 */
 	updateByPk(table, pkValue, changeFields) {
 		let that = this;
 
@@ -222,9 +264,8 @@ export default class IndexedDb extends DriverInterface {
 	}
 
 	/**
-	 *
-	 * @param table {string}
-	 * @param where {string}
+	 * Remove all records from table
+	 * @param {string} table Table name
 	 * @returns {Promise}
 	 */
 	removeAll(table) {
@@ -240,7 +281,12 @@ export default class IndexedDb extends DriverInterface {
 			request.onsuccess = () => ok(request.result);
 		});
 	}
-
+	/**
+	 * Get record by primary key value.
+	 * @param {string} table Table name
+	 * @param {*} pkValue Primary key value.
+	 * @returns {Promise}
+	 */
 	removeByPk(table, pkValue) {
 		let that = this;
 
@@ -255,6 +301,9 @@ export default class IndexedDb extends DriverInterface {
 		});
 	}
 
+	/**
+	 * Close database.
+	 */
 	close () {
 		this._db.close();
 		this._db = null;

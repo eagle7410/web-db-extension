@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 64);
+/******/ 	return __webpack_require__(__webpack_require__.s = 65);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -87,7 +87,7 @@ if (typeof __g == 'number') __g = global; // eslint-disable-line no-undef
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var store = __webpack_require__(31)('wks');
+var store = __webpack_require__(32)('wks');
 var uid = __webpack_require__(20);
 var Symbol = __webpack_require__(1).Symbol;
 var USE_SYMBOL = typeof Symbol == 'function';
@@ -183,8 +183,8 @@ module.exports = function (it) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var anObject = __webpack_require__(4);
-var IE8_DOM_DEFINE = __webpack_require__(40);
-var toPrimitive = __webpack_require__(27);
+var IE8_DOM_DEFINE = __webpack_require__(43);
+var toPrimitive = __webpack_require__(28);
 var dP = Object.defineProperty;
 
 exports.f = __webpack_require__(6) ? Object.defineProperty : function defineProperty(O, P, Attributes) {
@@ -261,8 +261,8 @@ module.exports = function (exec) {
 /***/ (function(module, exports, __webpack_require__) {
 
 // to indexed object, toObject with fallback for non-array-like ES3 strings
-var IObject = __webpack_require__(42);
-var defined = __webpack_require__(28);
+var IObject = __webpack_require__(45);
+var defined = __webpack_require__(29);
 module.exports = function (it) {
   return IObject(defined(it));
 };
@@ -292,7 +292,7 @@ exports.default = function (instance, Constructor) {
 
 exports.__esModule = true;
 
-var _defineProperty = __webpack_require__(71);
+var _defineProperty = __webpack_require__(72);
 
 var _defineProperty2 = _interopRequireDefault(_defineProperty);
 
@@ -347,8 +347,8 @@ module.exports = function (fn, that, length) {
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.14 / 15.2.3.14 Object.keys(O)
-var $keys = __webpack_require__(41);
-var enumBugKeys = __webpack_require__(32);
+var $keys = __webpack_require__(44);
+var enumBugKeys = __webpack_require__(33);
 
 module.exports = Object.keys || function keys(O) {
   return $keys(O, enumBugKeys);
@@ -420,7 +420,7 @@ exports.f = {}.propertyIsEnumerable;
 /***/ (function(module, exports, __webpack_require__) {
 
 // 7.1.13 ToObject(argument)
-var defined = __webpack_require__(28);
+var defined = __webpack_require__(29);
 module.exports = function (it) {
   return Object(defined(it));
 };
@@ -450,12 +450,18 @@ module.exports = function (it, tag, stat) {
 /* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
+module.exports = { "default": __webpack_require__(91), __esModule: true };
+
+/***/ }),
+/* 26 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 
 
 exports.__esModule = true;
 
-var _assign = __webpack_require__(65);
+var _assign = __webpack_require__(66);
 
 var _assign2 = _interopRequireDefault(_assign);
 
@@ -476,7 +482,7 @@ exports.default = _assign2.default || function (target) {
 };
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var isObject = __webpack_require__(8);
@@ -489,7 +495,7 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 7.1.1 ToPrimitive(input [, PreferredType])
@@ -507,7 +513,7 @@ module.exports = function (it, S) {
 
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports) {
 
 // 7.2.1 RequireObjectCoercible(argument)
@@ -518,7 +524,7 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports) {
 
 // 7.1.4 ToInteger
@@ -530,10 +536,10 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var shared = __webpack_require__(31)('keys');
+var shared = __webpack_require__(32)('keys');
 var uid = __webpack_require__(20);
 module.exports = function (key) {
   return shared[key] || (shared[key] = uid(key));
@@ -541,7 +547,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var global = __webpack_require__(1);
@@ -553,7 +559,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports) {
 
 // IE 8- don't enum bug keys
@@ -563,40 +569,59 @@ module.exports = (
 
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports) {
 
 exports.f = Object.getOwnPropertySymbols;
 
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(75), __esModule: true };
+__webpack_require__(78);
+var global = __webpack_require__(1);
+var hide = __webpack_require__(7);
+var Iterators = __webpack_require__(17);
+var TO_STRING_TAG = __webpack_require__(2)('toStringTag');
+
+var DOMIterables = ('CSSRuleList,CSSStyleDeclaration,CSSValueList,ClientRectList,DOMRectList,DOMStringList,' +
+  'DOMTokenList,DataTransferItemList,FileList,HTMLAllCollection,HTMLCollection,HTMLFormElement,HTMLSelectElement,' +
+  'MediaList,MimeTypeArray,NamedNodeMap,NodeList,PaintRequestList,Plugin,PluginArray,SVGLengthList,SVGNumberList,' +
+  'SVGPathSegList,SVGPointList,SVGStringList,SVGTransformList,SourceBufferList,StyleSheetList,TextTrackCueList,' +
+  'TextTrackList,TouchList').split(',');
+
+for (var i = 0; i < DOMIterables.length; i++) {
+  var NAME = DOMIterables[i];
+  var Collection = global[NAME];
+  var proto = Collection && Collection.prototype;
+  if (proto && !proto[TO_STRING_TAG]) hide(proto, TO_STRING_TAG, NAME);
+  Iterators[NAME] = Iterators.Array;
+}
+
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
 var anObject = __webpack_require__(4);
-var dPs = __webpack_require__(80);
-var enumBugKeys = __webpack_require__(32);
-var IE_PROTO = __webpack_require__(30)('IE_PROTO');
+var dPs = __webpack_require__(82);
+var enumBugKeys = __webpack_require__(33);
+var IE_PROTO = __webpack_require__(31)('IE_PROTO');
 var Empty = function () { /* empty */ };
 var PROTOTYPE = 'prototype';
 
 // Create object with fake `null` prototype: use iframe Object with cleared prototype
 var createDict = function () {
   // Thrash, waste and sodomy: IE GC bug
-  var iframe = __webpack_require__(26)('iframe');
+  var iframe = __webpack_require__(27)('iframe');
   var i = enumBugKeys.length;
   var lt = '<';
   var gt = '>';
   var iframeDocument;
   iframe.style.display = 'none';
-  __webpack_require__(50).appendChild(iframe);
+  __webpack_require__(49).appendChild(iframe);
   iframe.src = 'javascript:'; // eslint-disable-line no-script-url
   // createDict = iframe.contentWindow.Object;
   // html.removeChild(iframe);
@@ -623,7 +648,37 @@ module.exports = Object.create || function create(O, Properties) {
 
 
 /***/ }),
-/* 36 */
+/* 37 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var $at = __webpack_require__(83)(true);
+
+// 21.1.3.27 String.prototype[@@iterator]()
+__webpack_require__(47)(String, 'String', function (iterated) {
+  this._t = String(iterated); // target
+  this._i = 0;                // next index
+// 21.1.5.2.1 %StringIteratorPrototype%.next()
+}, function () {
+  var O = this._t;
+  var index = this._i;
+  var point;
+  if (index >= O.length) return { value: undefined, done: true };
+  point = $at(O, index);
+  this._i += point.length;
+  return { value: point, done: false };
+});
+
+
+/***/ }),
+/* 38 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = { "default": __webpack_require__(88), __esModule: true };
+
+/***/ }),
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -648,20 +703,20 @@ module.exports.f = function (C) {
 
 
 /***/ }),
-/* 37 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports.f = __webpack_require__(2);
 
 
 /***/ }),
-/* 38 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var global = __webpack_require__(1);
 var core = __webpack_require__(0);
 var LIBRARY = __webpack_require__(23);
-var wksExt = __webpack_require__(37);
+var wksExt = __webpack_require__(40);
 var defineProperty = __webpack_require__(5).f;
 module.exports = function (name) {
   var $Symbol = core.Symbol || (core.Symbol = LIBRARY ? {} : global.Symbol || {});
@@ -670,7 +725,7 @@ module.exports = function (name) {
 
 
 /***/ }),
-/* 39 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -679,6 +734,10 @@ module.exports = function (name) {
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
+
+var _promise = __webpack_require__(25);
+
+var _promise2 = _interopRequireDefault(_promise);
 
 var _classCallCheck2 = __webpack_require__(12);
 
@@ -692,8 +751,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var DriverInterface = function () {
 	function DriverInterface() {
+		var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 		(0, _classCallCheck3.default)(this, DriverInterface);
 	}
+	/**
+  * Query constants.
+  * @returns {{ASC: string, DESK: string, TYPE_INT: string, TYPE_INTEGER: string, TYPE_TINYINT: string, TYPE_SMALLINT: string, TYPE_MEDIUMINT: string, TYPE_BIGINT: string, TYPE_TEXT: string, TYPE_CHAR: string, TYPE_VARCHAR: string, TYPE_CHARACTER: string, TYPE_REAL: string, TYPE_DOUBLE_FLOAT: string, TYPE_DOUBLE: string, TYPE_DOUBLE_PRECISION: string, TYPE_DATETIME: string, TYPE_DATE: string, TYPE_BOOLEAN: string, TYPE_NUMERIC: string, TYPE_DECIMAL: string}}
+  */
+
 
 	(0, _createClass3.default)(DriverInterface, [{
 		key: 'queryConst',
@@ -722,35 +787,189 @@ var DriverInterface = function () {
 				TYPE_DECIMAL: ''
 			};
 		}
+
+		/**
+   * Check database be open
+   * @returns {boolean}
+   */
+
 	}, {
 		key: 'isOpen',
-		value: function isOpen() {}
+		value: function isOpen() {
+			return false;
+		}
+
+		/**
+   * Drop database.
+   * @returns {Promise}
+   */
+
+	}, {
+		key: 'drop',
+		value: function drop() {
+			return new _promise2.default(function (ok, bad) {
+				return ok(null);
+			});
+		}
+
+		/**
+   * Init database. If database is empty crete tables
+   *
+   * @param objectTables {object} Object structure tables. When key is name table, values is structure fields.
+   * @returns {Promise}
+   */
+
 	}, {
 		key: 'init',
-		value: function init() {}
-	}, {
-		key: 'dropSafe',
-		value: function dropSafe(table) {}
-	}, {
-		key: 'createTable',
-		value: function createTable(table) {
-			var fields = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+		value: function init() {
+			var objectTables = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+			return new _promise2.default(function (ok, bad) {
+				return ok(null);
+			});
 		}
-	}, {
-		key: 'select',
-		value: function select(table, fields, where, limit, offset) {}
+
+		/**
+   * Insert record to database.
+   * @param {string} table Table name
+   * @param {array} fields Array name fields.
+   * @param {array} arInsert Array values
+   * @returns {Promise}
+   */
+
 	}, {
 		key: 'insert',
-		value: function insert(table, fields, arInsert) {}
+		value: function insert(table, fields, arInsert) {
+			return new _promise2.default(function (ok, bad) {
+				return ok(null);
+			});
+		}
+
+		/**
+   * Check database have tables.
+   * @returns {Promise}
+   */
+
 	}, {
 		key: 'isEmpty',
-		value: function isEmpty() {}
+		value: function isEmpty() {
+			return new _promise2.default(function (ok, bad) {
+				return ok(null);
+			});
+		}
+
+		/**
+   * Get all record from table
+   * @param {string} table Table name
+   * @returns {Promise}
+   */
+
+	}, {
+		key: 'getAll',
+		value: function getAll(table) {
+			return new _promise2.default(function (ok, bad) {
+				return ok(null);
+			});
+		}
+
+		/**
+   * Get record by primary key value.
+   * @param {string} table Table name
+   * @param {*} pkValue Primary key value.
+   * @returns {Promise}
+   */
+
+	}, {
+		key: 'getByPk',
+		value: function getByPk(table, pkValue) {
+			return new _promise2.default(function (ok, bad) {
+				return ok(null);
+			});
+		}
+
+		/**
+   * Get record by require index.
+   * @param {string} table Table name
+   * @param {string}indexRequire Name index what be require.
+   * @param {*} indexValue Value index
+   * @returns {Promise}
+   */
+
+	}, {
+		key: 'getByRequire',
+		value: function getByRequire(table, indexRequire, indexValue) {
+			return new _promise2.default(function (ok, bad) {
+				return ok(null);
+			});
+		}
+
+		/**
+   * Update or insert record to table.
+   * @param {string} table Table name
+   * @param {object} newFields Object insert or update.
+   * @returns {Promise}
+   */
+
 	}, {
 		key: 'upInsert',
-		value: function upInsert(table, setFields, where) {}
+		value: function upInsert(table, newFields) {
+			return new _promise2.default(function (ok, bad) {
+				return ok(null);
+			});
+		}
+
+		/**
+   * Update record by primary key.
+   * @param {string} table Table name
+   * @param {*} pkValue Primary key value.
+   * @param {object} changeFields Object change fields with new values.
+   * @returns {Promise}
+   */
+
 	}, {
-		key: 'remove',
-		value: function remove(table, where) {}
+		key: 'updateByPk',
+		value: function updateByPk(table, pkValue, changeFields) {
+			return new _promise2.default(function (ok, bad) {
+				return ok(null);
+			});
+		}
+
+		/**
+   * Remove all records from table
+   * @param {string} table Table name
+   * @returns {Promise}
+   */
+
+	}, {
+		key: 'removeAll',
+		value: function removeAll(table) {
+			return new _promise2.default(function (ok, bad) {
+				return ok(null);
+			});
+		}
+
+		/**
+   * Remove record by primary key.
+   * @param {string} table Table name
+   * @param {*} pkValue Primary key value.
+   * @returns {Promise}
+   */
+
+	}, {
+		key: 'removeByPk',
+		value: function removeByPk(table, pkValue) {
+			return new _promise2.default(function (ok, bad) {
+				return ok(null);
+			});
+		}
+
+		/**
+   * Close database.
+   */
+
+	}, {
+		key: 'close',
+		value: function close() {}
 	}]);
 	return DriverInterface;
 }();
@@ -758,22 +977,22 @@ var DriverInterface = function () {
 exports.default = DriverInterface;
 
 /***/ }),
-/* 40 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = !__webpack_require__(6) && !__webpack_require__(10)(function () {
-  return Object.defineProperty(__webpack_require__(26)('div'), 'a', { get: function () { return 7; } }).a != 7;
+  return Object.defineProperty(__webpack_require__(27)('div'), 'a', { get: function () { return 7; } }).a != 7;
 });
 
 
 /***/ }),
-/* 41 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var has = __webpack_require__(9);
 var toIObject = __webpack_require__(11);
-var arrayIndexOf = __webpack_require__(69)(false);
-var IE_PROTO = __webpack_require__(30)('IE_PROTO');
+var arrayIndexOf = __webpack_require__(70)(false);
+var IE_PROTO = __webpack_require__(31)('IE_PROTO');
 
 module.exports = function (object, names) {
   var O = toIObject(object);
@@ -790,7 +1009,7 @@ module.exports = function (object, names) {
 
 
 /***/ }),
-/* 42 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // fallback for non-array-like ES3 and non-enumerable old V8 strings
@@ -802,43 +1021,15 @@ module.exports = Object('z').propertyIsEnumerable(0) ? Object : function (it) {
 
 
 /***/ }),
-/* 43 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 7.1.15 ToLength
-var toInteger = __webpack_require__(29);
+var toInteger = __webpack_require__(30);
 var min = Math.min;
 module.exports = function (it) {
   return it > 0 ? min(toInteger(it), 0x1fffffffffffff) : 0; // pow(2, 53) - 1 == 9007199254740991
 };
-
-
-/***/ }),
-/* 44 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// most Object methods by ES6 should accept primitives
-var $export = __webpack_require__(3);
-var core = __webpack_require__(0);
-var fails = __webpack_require__(10);
-module.exports = function (KEY, exec) {
-  var fn = (core.Object || {})[KEY] || Object[KEY];
-  var exp = {};
-  exp[KEY] = exec(fn);
-  $export($export.S + $export.F * fails(function () { fn(1); }), 'Object', exp);
-};
-
-
-/***/ }),
-/* 45 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = { "default": __webpack_require__(77), __esModule: true };
-
-/***/ }),
-/* 46 */
-/***/ (function(module, exports) {
-
 
 
 /***/ }),
@@ -847,39 +1038,15 @@ module.exports = { "default": __webpack_require__(77), __esModule: true };
 
 "use strict";
 
-var $at = __webpack_require__(78)(true);
-
-// 21.1.3.27 String.prototype[@@iterator]()
-__webpack_require__(48)(String, 'String', function (iterated) {
-  this._t = String(iterated); // target
-  this._i = 0;                // next index
-// 21.1.5.2.1 %StringIteratorPrototype%.next()
-}, function () {
-  var O = this._t;
-  var index = this._i;
-  var point;
-  if (index >= O.length) return { value: undefined, done: true };
-  point = $at(O, index);
-  this._i += point.length;
-  return { value: point, done: false };
-});
-
-
-/***/ }),
-/* 48 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
 var LIBRARY = __webpack_require__(23);
 var $export = __webpack_require__(3);
-var redefine = __webpack_require__(49);
+var redefine = __webpack_require__(48);
 var hide = __webpack_require__(7);
 var has = __webpack_require__(9);
 var Iterators = __webpack_require__(17);
-var $iterCreate = __webpack_require__(79);
+var $iterCreate = __webpack_require__(81);
 var setToStringTag = __webpack_require__(24);
-var getPrototypeOf = __webpack_require__(51);
+var getPrototypeOf = __webpack_require__(50);
 var ITERATOR = __webpack_require__(2)('iterator');
 var BUGGY = !([].keys && 'next' in [].keys()); // Safari has buggy iterators w/o `next`
 var FF_ITERATOR = '@@iterator';
@@ -943,14 +1110,14 @@ module.exports = function (Base, NAME, Constructor, next, DEFAULT, IS_SET, FORCE
 
 
 /***/ }),
-/* 49 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(7);
 
 
 /***/ }),
-/* 50 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var document = __webpack_require__(1).document;
@@ -958,13 +1125,13 @@ module.exports = document && document.documentElement;
 
 
 /***/ }),
-/* 51 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.9 / 15.2.3.2 Object.getPrototypeOf(O)
 var has = __webpack_require__(9);
 var toObject = __webpack_require__(22);
-var IE_PROTO = __webpack_require__(30)('IE_PROTO');
+var IE_PROTO = __webpack_require__(31)('IE_PROTO');
 var ObjectProto = Object.prototype;
 
 module.exports = Object.getPrototypeOf || function (O) {
@@ -977,32 +1144,21 @@ module.exports = Object.getPrototypeOf || function (O) {
 
 
 /***/ }),
-/* 52 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(81);
-var global = __webpack_require__(1);
-var hide = __webpack_require__(7);
+var classof = __webpack_require__(52);
+var ITERATOR = __webpack_require__(2)('iterator');
 var Iterators = __webpack_require__(17);
-var TO_STRING_TAG = __webpack_require__(2)('toStringTag');
-
-var DOMIterables = ('CSSRuleList,CSSStyleDeclaration,CSSValueList,ClientRectList,DOMRectList,DOMStringList,' +
-  'DOMTokenList,DataTransferItemList,FileList,HTMLAllCollection,HTMLCollection,HTMLFormElement,HTMLSelectElement,' +
-  'MediaList,MimeTypeArray,NamedNodeMap,NodeList,PaintRequestList,Plugin,PluginArray,SVGLengthList,SVGNumberList,' +
-  'SVGPathSegList,SVGPointList,SVGStringList,SVGTransformList,SourceBufferList,StyleSheetList,TextTrackCueList,' +
-  'TextTrackList,TouchList').split(',');
-
-for (var i = 0; i < DOMIterables.length; i++) {
-  var NAME = DOMIterables[i];
-  var Collection = global[NAME];
-  var proto = Collection && Collection.prototype;
-  if (proto && !proto[TO_STRING_TAG]) hide(proto, TO_STRING_TAG, NAME);
-  Iterators[NAME] = Iterators.Array;
-}
+module.exports = __webpack_require__(0).getIteratorMethod = function (it) {
+  if (it != undefined) return it[ITERATOR]
+    || it['@@iterator']
+    || Iterators[classof(it)];
+};
 
 
 /***/ }),
-/* 53 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // getting tag from 19.1.3.6 Object.prototype.toString()
@@ -1031,7 +1187,29 @@ module.exports = function (it) {
 
 
 /***/ }),
+/* 53 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// most Object methods by ES6 should accept primitives
+var $export = __webpack_require__(3);
+var core = __webpack_require__(0);
+var fails = __webpack_require__(10);
+module.exports = function (KEY, exec) {
+  var fn = (core.Object || {})[KEY] || Object[KEY];
+  var exp = {};
+  exp[KEY] = exec(fn);
+  $export($export.S + $export.F * fails(function () { fn(1); }), 'Object', exp);
+};
+
+
+/***/ }),
 /* 54 */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 7.3.20 SpeciesConstructor(O, defaultConstructor)
@@ -1046,13 +1224,13 @@ module.exports = function (O, D) {
 
 
 /***/ }),
-/* 55 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var ctx = __webpack_require__(14);
-var invoke = __webpack_require__(90);
-var html = __webpack_require__(50);
-var cel = __webpack_require__(26);
+var invoke = __webpack_require__(97);
+var html = __webpack_require__(49);
+var cel = __webpack_require__(27);
 var global = __webpack_require__(1);
 var process = global.process;
 var setTask = global.setImmediate;
@@ -1136,7 +1314,7 @@ module.exports = {
 
 
 /***/ }),
-/* 56 */
+/* 57 */
 /***/ (function(module, exports) {
 
 module.exports = function (exec) {
@@ -1149,12 +1327,12 @@ module.exports = function (exec) {
 
 
 /***/ }),
-/* 57 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var anObject = __webpack_require__(4);
 var isObject = __webpack_require__(8);
-var newPromiseCapability = __webpack_require__(36);
+var newPromiseCapability = __webpack_require__(39);
 
 module.exports = function (C, x) {
   anObject(C);
@@ -1167,13 +1345,13 @@ module.exports = function (C, x) {
 
 
 /***/ }),
-/* 58 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(97), __esModule: true };
+module.exports = { "default": __webpack_require__(104), __esModule: true };
 
 /***/ }),
-/* 59 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1181,7 +1359,7 @@ module.exports = { "default": __webpack_require__(97), __esModule: true };
 
 exports.__esModule = true;
 
-var _typeof2 = __webpack_require__(60);
+var _typeof2 = __webpack_require__(61);
 
 var _typeof3 = _interopRequireDefault(_typeof2);
 
@@ -1196,7 +1374,7 @@ exports.default = function (self, call) {
 };
 
 /***/ }),
-/* 60 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1204,11 +1382,11 @@ exports.default = function (self, call) {
 
 exports.__esModule = true;
 
-var _iterator = __webpack_require__(99);
+var _iterator = __webpack_require__(106);
 
 var _iterator2 = _interopRequireDefault(_iterator);
 
-var _symbol = __webpack_require__(101);
+var _symbol = __webpack_require__(108);
 
 var _symbol2 = _interopRequireDefault(_symbol);
 
@@ -1223,12 +1401,12 @@ exports.default = typeof _symbol2.default === "function" && _typeof(_iterator2.d
 };
 
 /***/ }),
-/* 61 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.7 / 15.2.3.4 Object.getOwnPropertyNames(O)
-var $keys = __webpack_require__(41);
-var hiddenKeys = __webpack_require__(32).concat('length', 'prototype');
+var $keys = __webpack_require__(44);
+var hiddenKeys = __webpack_require__(33).concat('length', 'prototype');
 
 exports.f = Object.getOwnPropertyNames || function getOwnPropertyNames(O) {
   return $keys(O, hiddenKeys);
@@ -1236,15 +1414,15 @@ exports.f = Object.getOwnPropertyNames || function getOwnPropertyNames(O) {
 
 
 /***/ }),
-/* 62 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var pIE = __webpack_require__(21);
 var createDesc = __webpack_require__(19);
 var toIObject = __webpack_require__(11);
-var toPrimitive = __webpack_require__(27);
+var toPrimitive = __webpack_require__(28);
 var has = __webpack_require__(9);
-var IE8_DOM_DEFINE = __webpack_require__(40);
+var IE8_DOM_DEFINE = __webpack_require__(43);
 var gOPD = Object.getOwnPropertyDescriptor;
 
 exports.f = __webpack_require__(6) ? gOPD : function getOwnPropertyDescriptor(O, P) {
@@ -1258,7 +1436,7 @@ exports.f = __webpack_require__(6) ? gOPD : function getOwnPropertyDescriptor(O,
 
 
 /***/ }),
-/* 63 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1266,15 +1444,15 @@ exports.f = __webpack_require__(6) ? gOPD : function getOwnPropertyDescriptor(O,
 
 exports.__esModule = true;
 
-var _setPrototypeOf = __webpack_require__(110);
+var _setPrototypeOf = __webpack_require__(117);
 
 var _setPrototypeOf2 = _interopRequireDefault(_setPrototypeOf);
 
-var _create = __webpack_require__(114);
+var _create = __webpack_require__(121);
 
 var _create2 = _interopRequireDefault(_create);
 
-var _typeof2 = __webpack_require__(60);
+var _typeof2 = __webpack_require__(61);
 
 var _typeof3 = _interopRequireDefault(_typeof2);
 
@@ -1297,13 +1475,13 @@ exports.default = function (subClass, superClass) {
 };
 
 /***/ }),
-/* 64 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _extends2 = __webpack_require__(25);
+var _extends2 = __webpack_require__(26);
 
 var _extends3 = _interopRequireDefault(_extends2);
 
@@ -1315,20 +1493,24 @@ var _createClass2 = __webpack_require__(13);
 
 var _createClass3 = _interopRequireDefault(_createClass2);
 
-var _WebSQL = __webpack_require__(74);
+var _WebSQL = __webpack_require__(75);
 
 var _WebSQL2 = _interopRequireDefault(_WebSQL);
 
-var _IndexedDb = __webpack_require__(118);
+var _IndexedDb = __webpack_require__(125);
 
 var _IndexedDb2 = _interopRequireDefault(_IndexedDb);
 
-var _DriverInterface = __webpack_require__(39);
+var _DriverInterface = __webpack_require__(42);
 
 var _DriverInterface2 = _interopRequireDefault(_DriverInterface);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/**
+ * Class for work this browsers databases.
+ * @class
+ */
 var DBSQL = function () {
 	function DBSQL(driver) {
 		(0, _classCallCheck3.default)(this, DBSQL);
@@ -1363,7 +1545,7 @@ var DBSQL = function () {
 	}
 
 	/**
-  *
+  * Constant drivers.
   * @returns {{WebSQL : int, IndexedDb: int}}
   */
 
@@ -1373,8 +1555,8 @@ var DBSQL = function () {
 
 
 		/**
-   *
-   * @returns {{ASC: number, DESK: number, TYPE_INT: string, TYPE_INTEGER: string, TYPE_TINYINT: string, TYPE_SMALLINT: string, TYPE_MEDIUMINT: string, TYPE_BIGINT: string, TYPE_TEXT: string, TYPE_CHAR: string, TYPE_VARCHAR: string, TYPE_CHARACTER: string, TYPE_REAL: string, TYPE_DOUBLE_FLOAT: string, TYPE_DOUBLE: string, TYPE_DOUBLE_PRECISION: string, TYPE_DATETIME: string, TYPE_DATE: string, TYPE_BOOLEAN: string, TYPE_NUMERIC: string, TYPE_DECIMAL: string}}
+   * Query constants.
+   * @returns {{ASC: string, DESK: string, TYPE_INT: string, TYPE_INTEGER: string, TYPE_TINYINT: string, TYPE_SMALLINT: string, TYPE_MEDIUMINT: string, TYPE_BIGINT: string, TYPE_TEXT: string, TYPE_CHAR: string, TYPE_VARCHAR: string, TYPE_CHARACTER: string, TYPE_REAL: string, TYPE_DOUBLE_FLOAT: string, TYPE_DOUBLE: string, TYPE_DOUBLE_PRECISION: string, TYPE_DATETIME: string, TYPE_DATE: string, TYPE_BOOLEAN: string, TYPE_NUMERIC: string, TYPE_DECIMAL: string}}
    */
 		value: function queryConst() {
 			return this._driver.queryConst();
@@ -1500,44 +1682,44 @@ var DBSQL = function () {
 	return DBSQL;
 }();
 
-window.DbSqlClass = _IndexedDb2.default;
-
-/***/ }),
-/* 65 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = { "default": __webpack_require__(66), __esModule: true };
+window.DbSqlClass = _WebSQL2.default;
 
 /***/ }),
 /* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(67);
-module.exports = __webpack_require__(0).Object.assign;
-
+module.exports = { "default": __webpack_require__(67), __esModule: true };
 
 /***/ }),
 /* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
-// 19.1.3.1 Object.assign(target, source)
-var $export = __webpack_require__(3);
-
-$export($export.S + $export.F, 'Object', { assign: __webpack_require__(68) });
+__webpack_require__(68);
+module.exports = __webpack_require__(0).Object.assign;
 
 
 /***/ }),
 /* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
+// 19.1.3.1 Object.assign(target, source)
+var $export = __webpack_require__(3);
+
+$export($export.S + $export.F, 'Object', { assign: __webpack_require__(69) });
+
+
+/***/ }),
+/* 69 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 
 // 19.1.2.1 Object.assign(target, source, ...)
 var getKeys = __webpack_require__(15);
-var gOPS = __webpack_require__(33);
+var gOPS = __webpack_require__(34);
 var pIE = __webpack_require__(21);
 var toObject = __webpack_require__(22);
-var IObject = __webpack_require__(42);
+var IObject = __webpack_require__(45);
 var $assign = Object.assign;
 
 // should work with symbols and should have deterministic property order (V8 bug)
@@ -1568,14 +1750,14 @@ module.exports = !$assign || __webpack_require__(10)(function () {
 
 
 /***/ }),
-/* 69 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // false -> Array#indexOf
 // true  -> Array#includes
 var toIObject = __webpack_require__(11);
-var toLength = __webpack_require__(43);
-var toAbsoluteIndex = __webpack_require__(70);
+var toLength = __webpack_require__(46);
+var toAbsoluteIndex = __webpack_require__(71);
 module.exports = function (IS_INCLUDES) {
   return function ($this, el, fromIndex) {
     var O = toIObject($this);
@@ -1597,10 +1779,10 @@ module.exports = function (IS_INCLUDES) {
 
 
 /***/ }),
-/* 70 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var toInteger = __webpack_require__(29);
+var toInteger = __webpack_require__(30);
 var max = Math.max;
 var min = Math.min;
 module.exports = function (index, length) {
@@ -1610,16 +1792,16 @@ module.exports = function (index, length) {
 
 
 /***/ }),
-/* 71 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = { "default": __webpack_require__(72), __esModule: true };
-
-/***/ }),
 /* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(73);
+module.exports = { "default": __webpack_require__(73), __esModule: true };
+
+/***/ }),
+/* 73 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(74);
 var $Object = __webpack_require__(0).Object;
 module.exports = function defineProperty(it, key, desc) {
   return $Object.defineProperty(it, key, desc);
@@ -1627,7 +1809,7 @@ module.exports = function defineProperty(it, key, desc) {
 
 
 /***/ }),
-/* 73 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $export = __webpack_require__(3);
@@ -1636,7 +1818,7 @@ $export($export.S + $export.F * !__webpack_require__(6), 'Object', { definePrope
 
 
 /***/ }),
-/* 74 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1646,19 +1828,31 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _keys = __webpack_require__(34);
+var _getIterator2 = __webpack_require__(76);
+
+var _getIterator3 = _interopRequireDefault(_getIterator2);
+
+var _regenerator = __webpack_require__(85);
+
+var _regenerator2 = _interopRequireDefault(_regenerator);
+
+var _keys = __webpack_require__(38);
 
 var _keys2 = _interopRequireDefault(_keys);
 
-var _promise = __webpack_require__(45);
+var _asyncToGenerator2 = __webpack_require__(90);
+
+var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
+
+var _promise = __webpack_require__(25);
 
 var _promise2 = _interopRequireDefault(_promise);
 
-var _extends2 = __webpack_require__(25);
+var _extends2 = __webpack_require__(26);
 
 var _extends3 = _interopRequireDefault(_extends2);
 
-var _getPrototypeOf = __webpack_require__(58);
+var _getPrototypeOf = __webpack_require__(59);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
@@ -1670,19 +1864,19 @@ var _createClass2 = __webpack_require__(13);
 
 var _createClass3 = _interopRequireDefault(_createClass2);
 
-var _possibleConstructorReturn2 = __webpack_require__(59);
+var _possibleConstructorReturn2 = __webpack_require__(60);
 
 var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
 
-var _inherits2 = __webpack_require__(63);
+var _inherits2 = __webpack_require__(64);
 
 var _inherits3 = _interopRequireDefault(_inherits2);
 
-var _QueryBuilder = __webpack_require__(117);
+var _QueryBuilder = __webpack_require__(124);
 
 var _QueryBuilder2 = _interopRequireDefault(_QueryBuilder);
 
-var _DriverInterface2 = __webpack_require__(39);
+var _DriverInterface2 = __webpack_require__(42);
 
 var _DriverInterface3 = _interopRequireDefault(_DriverInterface2);
 
@@ -1692,20 +1886,24 @@ var WebSQL = function (_DriverInterface) {
 	(0, _inherits3.default)(WebSQL, _DriverInterface);
 
 	function WebSQL() {
+		var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 		(0, _classCallCheck3.default)(this, WebSQL);
 
-		var _this = (0, _possibleConstructorReturn3.default)(this, (WebSQL.__proto__ || (0, _getPrototypeOf2.default)(WebSQL)).call(this));
+		var _this = (0, _possibleConstructorReturn3.default)(this, (WebSQL.__proto__ || (0, _getPrototypeOf2.default)(WebSQL)).call(this, params));
 
 		var that = _this;
 		that._db = null;
 		that._query = new _QueryBuilder2.default();
 		that._tx = null;
-		that._dbParams = {
+		that._pks = {};
+		that._tablesStruct = {};
+
+		that._dbParams = (0, _extends3.default)({
 			name: 'web_db',
 			version: 1,
 			nameDisplay: 'Database in browser',
 			prevSize: 200000
-		};
+		}, params);
 		return _this;
 	}
 
@@ -1733,22 +1931,26 @@ var WebSQL = function (_DriverInterface) {
 		}
 
 		/**
+   * Init database. If database is empty crete tables
    *
-   * @param params
+   * @param objectTables {object} Object structure tables. When key is name table, values is structure fields.
    * @returns {Promise}
    */
 
 	}, {
 		key: "init",
 		value: function init() {
-			var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+			var _this2 = this;
+
+			var objectTables = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
 			var that = this;
 
-			var option = (0, _extends3.default)({}, that._dbParams, params);
-
 			return new _promise2.default(function (ok, bad) {
-				that._db = openDatabase(option.name, '0.0.' + option.version, option.nameDisplay, option.prevSizes);
+
+				that._collectPkFieldsAndTablesStruct(objectTables);
+
+				that._db = openDatabase(that._dbParams.name, '0.0.' + that._dbParams.version, that._dbParams.nameDisplay, that._dbParams.prevSizes);
 
 				if (!that._db) {
 					return bad('Database not create');
@@ -1756,54 +1958,85 @@ var WebSQL = function (_DriverInterface) {
 
 				that._db.transaction(function (tx) {
 					that._tx = tx;
-					ok(that);
+
+					that.isEmpty().then(function (isEmpty) {
+
+						if (!isEmpty) {
+							return ok(that);
+						}
+
+						var createTables = function () {
+							var _ref = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee2() {
+								return _regenerator2.default.wrap(function _callee2$(_context2) {
+									while (1) {
+										switch (_context2.prev = _context2.next) {
+											case 0:
+												try {
+
+													(0, _keys2.default)(objectTables).forEach(function () {
+														var _ref2 = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee(table) {
+															return _regenerator2.default.wrap(function _callee$(_context) {
+																while (1) {
+																	switch (_context.prev = _context.next) {
+																		case 0:
+																			_context.next = 2;
+																			return that._createTable(table, objectTables[table]);
+
+																		case 2:
+																		case "end":
+																			return _context.stop();
+																	}
+																}
+															}, _callee, _this2);
+														}));
+
+														return function (_x3) {
+															return _ref2.apply(this, arguments);
+														};
+													}());
+												} catch (e) {
+													bad(e);
+												}
+
+												ok();
+
+											case 2:
+											case "end":
+												return _context2.stop();
+										}
+									}
+								}, _callee2, _this2);
+							}));
+
+							return function createTables() {
+								return _ref.apply(this, arguments);
+							};
+						}();
+
+						createTables();
+					}).catch(bad);
 				});
 			});
 		}
 
 		/**
-   *
-   * @param table {string}
+   * Insert record to database.
+   * @param {string} table Table name
+   * @param {array} fields Array name fields.
+   * @param {array} arInsert Array values
    * @returns {Promise}
    */
 
 	}, {
-		key: "dropSafe",
-		value: function dropSafe(table) {
-			var _this2 = this;
-
-			var that = this;
-
-			return new _promise2.default(function (ok, bad) {
-				_this2._tx.executeSql("DROP TABLE IF EXISTS \"" + table + "\"", [], function () {
-					return ok();
-				}, function (tx, err) {
-					return bad(err);
-				});
-			});
-		}
-
-		/**
-   *
-   * @param table string
-   * @param fields {{fieldName : object,..}| null}
-   * @returns {Promise}
-   */
-
-	}, {
-		key: "createTable",
-		value: function createTable(table) {
-			var fields = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
+		key: "insert",
+		value: function insert(table, fields, arInsert) {
 			var that = this;
 
 			return new _promise2.default(function (ok, bad) {
 
-				if (!table) {
-					return bad('No table name');
-				}
+				if (!arInsert.length) return ok();
 
-				that._tx.executeSql(that._query.createTable(table, fields), [], function (tx, res) {
+				that._tx.executeSql("INSERT INTO \"" + table + "\" (" + fields.join(',') + ") VALUES " + that._query.insertValues(arInsert, fields), [], function (tx, res) {
 					return ok(res);
 				}, function (tx, err) {
 					return bad(err);
@@ -1812,18 +2045,345 @@ var WebSQL = function (_DriverInterface) {
 		}
 
 		/**
+   * Get record by primary key value.
+   * @param {string} table Table name
+   * @param {*} pkValue Primary key value.
+   * @returns {Promise}
+   */
+
+	}, {
+		key: "getByPk",
+		value: function getByPk(table, pkValue) {
+			var that = this;
+
+			return new _promise2.default(function (ok, bad) {
+				var pk = that._pks[table];
+
+				if (!pk) {
+					return bad("Table \"" + table + "\" not have primary key.");
+				}
+
+				that._select(table, '*', pk + " = " + that._query.escapeFieldValue(pkValue), 1).then(function (res) {
+					return ok(res.length ? res[0] : null);
+				}, bad);
+			});
+		}
+
+		/**
+   * Get record by require index.
+   * @param {string} table Table name
+   * @param {string}indexRequire Name index what be require.
+   * @param {*} indexValue Value index
+   * @returns {Promise}
+   */
+
+	}, {
+		key: "getByRequire",
+		value: function getByRequire(table, indexRequire, indexValue) {
+			var that = this;
+
+			return new _promise2.default(function (ok, bad) {
+				that._select(table, '*', indexRequire + " = " + that._query.escapeFieldValue(indexValue), 1).then(function (res) {
+					return ok(res.length ? res[0] : null);
+				}, bad);
+			});
+		}
+
+		/**
+   * Get all record from table
+   * @param {string} table Table name
+   * @returns {Promise}
+   */
+
+	}, {
+		key: "getAll",
+		value: function getAll(table) {
+			var that = this;
+
+			return new _promise2.default(function (ok, bad) {
+				that._select(table, '*').then(ok, bad);
+			});
+		}
+
+		/**
    *
-   * @param table
+   * @returns {Promise}
+   */
+
+	}, {
+		key: "isEmpty",
+		value: function isEmpty() {
+			var that = this;
+
+			return new _promise2.default(function (ok, bad) {
+				that._select('sqlite_master', '*', 'type="table" AND name NOT IN ("__WebKitDatabaseInfoTable__", "sqlite_sequence")', 1).then(function (rows) {
+					// TODO: clear
+					console.log('rows', rows);
+					ok(Boolean(!rows.length));
+				}).catch(function (err) {
+					return bad(err);
+				});
+			});
+		}
+
+		/**
+   * Update record by primary key.
+   * @param {string} table Table name
+   * @param {*} pkValue Primary key value.
+   * @param {object} changeFields Object change fields with new values.
+   * @returns {Promise}
+   */
+
+	}, {
+		key: "updateByPk",
+		value: function updateByPk(table, pkValue, changeFields) {
+			var that = this;
+
+			return new _promise2.default(function (ok, bad) {
+				var pk = that._pks[table];
+
+				if (!pk) {
+					return bad("Table \"" + table + "\" not have primary key.");
+				}
+
+				that._update(table, changeFields, pk + " = " + that._query.escapeFieldValue(pkValue)).then(ok, bad);
+			});
+		}
+
+		/**
+   * Update or insert record to table.
+   * @param {string} table Table name
+   * @param {object} newFields Object insert or update.
+   * @returns {Promise}
+   */
+
+	}, {
+		key: "upInsert",
+		value: function upInsert(table, newFields) {
+			var that = this;
+
+			return new _promise2.default(function (ok, bad) {
+				var pk = that._pks[table];
+
+				if (!pk) {
+					return bad("Table \"" + table + "\" not have primary key.");
+				}
+
+				that.getByPk(table, newFields[pk]).then(function (res) {
+					var fields = that._tablesStruct[table];
+
+					if (res !== null) {
+						var _iteratorNormalCompletion = true;
+						var _didIteratorError = false;
+						var _iteratorError = undefined;
+
+						try {
+
+							for (var _iterator = (0, _getIterator3.default)(fields), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+								var field = _step.value;
+
+								newFields[field] = newFields[field] || null;
+							}
+						} catch (err) {
+							_didIteratorError = true;
+							_iteratorError = err;
+						} finally {
+							try {
+								if (!_iteratorNormalCompletion && _iterator.return) {
+									_iterator.return();
+								}
+							} finally {
+								if (_didIteratorError) {
+									throw _iteratorError;
+								}
+							}
+						}
+
+						return that.updateByPk(table, newFields[pk], newFields);
+					}
+
+					var values = [];
+
+					var _iteratorNormalCompletion2 = true;
+					var _didIteratorError2 = false;
+					var _iteratorError2 = undefined;
+
+					try {
+						for (var _iterator2 = (0, _getIterator3.default)(fields), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+							var _field = _step2.value;
+
+							values.push(newFields[_field] || null);
+						}
+					} catch (err) {
+						_didIteratorError2 = true;
+						_iteratorError2 = err;
+					} finally {
+						try {
+							if (!_iteratorNormalCompletion2 && _iterator2.return) {
+								_iterator2.return();
+							}
+						} finally {
+							if (_didIteratorError2) {
+								throw _iteratorError2;
+							}
+						}
+					}
+
+					return that.insert(table, fields, values);
+				}).then(ok).catch(bad);
+			});
+		}
+
+		/**
+   *
+   * @param {string} table Table name
+   * @param {*} pkValue Primary key value.
+   * @returns {Promise}
+   */
+
+	}, {
+		key: "removeByPk",
+		value: function removeByPk(table, pkValue) {
+			var that = this;
+
+			return new _promise2.default(function (ok, bad) {
+				var pk = that._pks[table];
+
+				if (!pk) {
+					return bad("Table \"" + table + "\" not have primary key.");
+				}
+
+				that._remove(table, pk + " = " + that._query.escapeFieldValue(pkValue)).then(ok, bad);
+			});
+		}
+
+		/**
+   * Remove all records from table
+   * @param {string} table Table name
+   * @returns {Promise}
+   */
+
+	}, {
+		key: "removeAll",
+		value: function removeAll(table) {
+			var that = this;
+
+			return new _promise2.default(function (ok, bad) {
+				that._remove(table).then(ok, bad);
+			});
+		}
+
+		/**
+   * Drop database.
+   * @returns {Promise}
+   */
+
+	}, {
+		key: "drop",
+		value: function drop() {
+			var _this3 = this;
+
+			var that = this;
+
+			return new _promise2.default(function (ok, bad) {
+				// empty string means: I do not care what version, desc, size the db is
+				var db = void 0;
+
+				db = openDatabase(that._dbParams.name, '0.0.' + that._dbParams.version, that._dbParams.nameDisplay, that._dbParams.prevSizes);
+
+				function error(tx, err) {
+					bad(err);
+				}
+
+				db.transaction(function (ts) {
+					ts.executeSql(that._query.select('sqlite_master', '*', 'type="table" AND name NOT IN ("__WebKitDatabaseInfoTable__", "sqlite_sequence")'), [], function (tx, res) {
+						if (!res.rows || !res.rows.length) {
+							return ok();
+						}
+
+						var removeTables = function () {
+							var _ref3 = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee3() {
+								var i, tableInfo;
+								return _regenerator2.default.wrap(function _callee3$(_context3) {
+									while (1) {
+										switch (_context3.prev = _context3.next) {
+											case 0:
+												_context3.prev = 0;
+												i = 0;
+
+											case 2:
+												if (!(i < res.rows.length)) {
+													_context3.next = 11;
+													break;
+												}
+
+												tableInfo = res.rows.item(i);
+
+												if (!(tableInfo.type !== 'table')) {
+													_context3.next = 6;
+													break;
+												}
+
+												return _context3.abrupt("continue", 8);
+
+											case 6:
+												_context3.next = 8;
+												return that._dropSafe(tableInfo.name, ts);
+
+											case 8:
+												++i;
+												_context3.next = 2;
+												break;
+
+											case 11:
+
+												ok();
+												_context3.next = 18;
+												break;
+
+											case 14:
+												_context3.prev = 14;
+												_context3.t0 = _context3["catch"](0);
+
+												console.log('Err', _context3.t0);
+												bad(_context3.t0);
+
+											case 18:
+											case "end":
+												return _context3.stop();
+										}
+									}
+								}, _callee3, _this3, [[0, 14]]);
+							}));
+
+							return function removeTables() {
+								return _ref3.apply(this, arguments);
+							};
+						}();
+
+						removeTables();
+					}, function (tx, err) {
+						return bad(err);
+					});
+				});
+			});
+		}
+
+		/**
+   * Select form table.
+   *
+   * @param {string} table
    * @param fields
    * @param where
    * @param limit
    * @param offset
    * @returns {Promise}
+   * @private
    */
 
 	}, {
-		key: "select",
-		value: function select(table, fields, where, limit, offset) {
+		key: "_select",
+		value: function _select(table, fields, where, limit, offset) {
 			var that = this;
 
 			return new _promise2.default(function (ok, bad) {
@@ -1844,23 +2404,23 @@ var WebSQL = function (_DriverInterface) {
 		}
 
 		/**
-   *
-   * @param table {string}
-   * @param fields {string}
-   * @param arInsert {array}
+   * Create table.
+   * @param table
+   * @param fields
    * @returns {Promise}
+   * @private
    */
 
 	}, {
-		key: "insert",
-		value: function insert(table, fields, arInsert) {
+		key: "_createTable",
+		value: function _createTable(table) {
+			var fields = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
 			var that = this;
 
 			return new _promise2.default(function (ok, bad) {
 
-				if (!arInsert.length) return ok();
-
-				that._tx.executeSql("INSERT INTO \"" + table + "\" (" + fields.join(',') + ") VALUES " + that._query.insertValues(arInsert), [], function (tx, res) {
+				that._tx.executeSql(that._query.createTable(table, fields), [], function (tx, res) {
 					return ok(res);
 				}, function (tx, err) {
 					return bad(err);
@@ -1870,20 +2430,21 @@ var WebSQL = function (_DriverInterface) {
 
 		/**
    *
+   * @param table
+   * @param tx
    * @returns {Promise}
+   * @private
    */
 
 	}, {
-		key: "isEmpty",
-		value: function isEmpty() {
-			var that = this;
+		key: "_dropSafe",
+		value: function _dropSafe(table, tx) {
+			tx = tx || this._tx;
 
 			return new _promise2.default(function (ok, bad) {
-				that.select('sqlite_master', '*', 'type="table" AND name NOT IN ("__WebKitDatabaseInfoTable__", "sqlite_sequence")', 1).then(function (rows) {
-					// TODO: clear
-					console.log('rows', rows);
-					ok(Boolean(!rows.length));
-				}).catch(function (err) {
+				tx.executeSql("DROP TABLE IF EXISTS \"" + table + "\"", [], function () {
+					return ok();
+				}, function (tx, err) {
 					return bad(err);
 				});
 			});
@@ -1891,18 +2452,45 @@ var WebSQL = function (_DriverInterface) {
 
 		/**
    *
-   * @param table {string}
-   * @param setFields {string}
-   * @param where {string| null}
-   * @returns {Promise}
+   * @param objectTables {object} Object structure tables. When key is name table, values is structure fields.
+   * @private
    */
 
 	}, {
-		key: "upInsert",
-		value: function upInsert(table, setFields, where) {
+		key: "_collectPkFieldsAndTablesStruct",
+		value: function _collectPkFieldsAndTablesStruct(objectTables) {
+			var that = this;
+
+			for (var table in objectTables) {
+
+				that._tablesStruct[table] = [];
+
+				for (var field in objectTables[table]) {
+
+					that._tablesStruct[table].push(field);
+
+					if (objectTables[table][field].pk) {
+						that._pks[table] = field;
+					}
+				}
+			}
+		}
+
+		/**
+   * Update table
+   * @param table
+   * @param setFields
+   * @param where
+   * @returns {Promise}
+   * @private
+   */
+
+	}, {
+		key: "_update",
+		value: function _update(table, setFields, where) {
 			var that = this;
 			var updateString = (0, _keys2.default)(setFields).map(function (field) {
-				return field + " = " + setFields[field];
+				return field + " = " + that._query.escapeFieldValue(setFields[field]);
 			}).join(',');
 
 			updateString = "UPDATE " + table + " SET " + updateString;
@@ -1920,14 +2508,15 @@ var WebSQL = function (_DriverInterface) {
 
 		/**
    *
-   * @param table {string}
-   * @param where {string}
+   * @param table
+   * @param where
    * @returns {Promise}
+   * @private
    */
 
 	}, {
-		key: "remove",
-		value: function remove(table, where) {
+		key: "_remove",
+		value: function _remove(table, where) {
 			var that = this;
 			var deleteString = "DELETE FROM " + table;
 
@@ -1948,111 +2537,28 @@ var WebSQL = function (_DriverInterface) {
 exports.default = WebSQL;
 
 /***/ }),
-/* 75 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(76);
-module.exports = __webpack_require__(0).Object.keys;
-
-
-/***/ }),
 /* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
-// 19.1.2.14 Object.keys(O)
-var toObject = __webpack_require__(22);
-var $keys = __webpack_require__(15);
-
-__webpack_require__(44)('keys', function () {
-  return function keys(it) {
-    return $keys(toObject(it));
-  };
-});
-
+module.exports = { "default": __webpack_require__(77), __esModule: true };
 
 /***/ }),
 /* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(46);
-__webpack_require__(47);
-__webpack_require__(52);
-__webpack_require__(84);
-__webpack_require__(95);
-__webpack_require__(96);
-module.exports = __webpack_require__(0).Promise;
+__webpack_require__(35);
+__webpack_require__(37);
+module.exports = __webpack_require__(84);
 
 
 /***/ }),
 /* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var toInteger = __webpack_require__(29);
-var defined = __webpack_require__(28);
-// true  -> String#at
-// false -> String#codePointAt
-module.exports = function (TO_STRING) {
-  return function (that, pos) {
-    var s = String(defined(that));
-    var i = toInteger(pos);
-    var l = s.length;
-    var a, b;
-    if (i < 0 || i >= l) return TO_STRING ? '' : undefined;
-    a = s.charCodeAt(i);
-    return a < 0xd800 || a > 0xdbff || i + 1 === l || (b = s.charCodeAt(i + 1)) < 0xdc00 || b > 0xdfff
-      ? TO_STRING ? s.charAt(i) : a
-      : TO_STRING ? s.slice(i, i + 2) : (a - 0xd800 << 10) + (b - 0xdc00) + 0x10000;
-  };
-};
-
-
-/***/ }),
-/* 79 */
-/***/ (function(module, exports, __webpack_require__) {
-
 "use strict";
 
-var create = __webpack_require__(35);
-var descriptor = __webpack_require__(19);
-var setToStringTag = __webpack_require__(24);
-var IteratorPrototype = {};
-
-// 25.1.2.1.1 %IteratorPrototype%[@@iterator]()
-__webpack_require__(7)(IteratorPrototype, __webpack_require__(2)('iterator'), function () { return this; });
-
-module.exports = function (Constructor, NAME, next) {
-  Constructor.prototype = create(IteratorPrototype, { next: descriptor(1, next) });
-  setToStringTag(Constructor, NAME + ' Iterator');
-};
-
-
-/***/ }),
-/* 80 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var dP = __webpack_require__(5);
-var anObject = __webpack_require__(4);
-var getKeys = __webpack_require__(15);
-
-module.exports = __webpack_require__(6) ? Object.defineProperties : function defineProperties(O, Properties) {
-  anObject(O);
-  var keys = getKeys(Properties);
-  var length = keys.length;
-  var i = 0;
-  var P;
-  while (length > i) dP.f(O, P = keys[i++], Properties[P]);
-  return O;
-};
-
-
-/***/ }),
-/* 81 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var addToUnscopables = __webpack_require__(82);
-var step = __webpack_require__(83);
+var addToUnscopables = __webpack_require__(79);
+var step = __webpack_require__(80);
 var Iterators = __webpack_require__(17);
 var toIObject = __webpack_require__(11);
 
@@ -2060,7 +2566,7 @@ var toIObject = __webpack_require__(11);
 // 22.1.3.13 Array.prototype.keys()
 // 22.1.3.29 Array.prototype.values()
 // 22.1.3.30 Array.prototype[@@iterator]()
-module.exports = __webpack_require__(48)(Array, 'Array', function (iterated, kind) {
+module.exports = __webpack_require__(47)(Array, 'Array', function (iterated, kind) {
   this._t = toIObject(iterated); // target
   this._i = 0;                   // next index
   this._k = kind;                // kind
@@ -2087,14 +2593,14 @@ addToUnscopables('entries');
 
 
 /***/ }),
-/* 82 */
+/* 79 */
 /***/ (function(module, exports) {
 
 module.exports = function () { /* empty */ };
 
 
 /***/ }),
-/* 83 */
+/* 80 */
 /***/ (function(module, exports) {
 
 module.exports = function (done, value) {
@@ -2103,7 +2609,939 @@ module.exports = function (done, value) {
 
 
 /***/ }),
+/* 81 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var create = __webpack_require__(36);
+var descriptor = __webpack_require__(19);
+var setToStringTag = __webpack_require__(24);
+var IteratorPrototype = {};
+
+// 25.1.2.1.1 %IteratorPrototype%[@@iterator]()
+__webpack_require__(7)(IteratorPrototype, __webpack_require__(2)('iterator'), function () { return this; });
+
+module.exports = function (Constructor, NAME, next) {
+  Constructor.prototype = create(IteratorPrototype, { next: descriptor(1, next) });
+  setToStringTag(Constructor, NAME + ' Iterator');
+};
+
+
+/***/ }),
+/* 82 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var dP = __webpack_require__(5);
+var anObject = __webpack_require__(4);
+var getKeys = __webpack_require__(15);
+
+module.exports = __webpack_require__(6) ? Object.defineProperties : function defineProperties(O, Properties) {
+  anObject(O);
+  var keys = getKeys(Properties);
+  var length = keys.length;
+  var i = 0;
+  var P;
+  while (length > i) dP.f(O, P = keys[i++], Properties[P]);
+  return O;
+};
+
+
+/***/ }),
+/* 83 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var toInteger = __webpack_require__(30);
+var defined = __webpack_require__(29);
+// true  -> String#at
+// false -> String#codePointAt
+module.exports = function (TO_STRING) {
+  return function (that, pos) {
+    var s = String(defined(that));
+    var i = toInteger(pos);
+    var l = s.length;
+    var a, b;
+    if (i < 0 || i >= l) return TO_STRING ? '' : undefined;
+    a = s.charCodeAt(i);
+    return a < 0xd800 || a > 0xdbff || i + 1 === l || (b = s.charCodeAt(i + 1)) < 0xdc00 || b > 0xdfff
+      ? TO_STRING ? s.charAt(i) : a
+      : TO_STRING ? s.slice(i, i + 2) : (a - 0xd800 << 10) + (b - 0xdc00) + 0x10000;
+  };
+};
+
+
+/***/ }),
 /* 84 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var anObject = __webpack_require__(4);
+var get = __webpack_require__(51);
+module.exports = __webpack_require__(0).getIterator = function (it) {
+  var iterFn = get(it);
+  if (typeof iterFn != 'function') throw TypeError(it + ' is not iterable!');
+  return anObject(iterFn.call(it));
+};
+
+
+/***/ }),
+/* 85 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(86);
+
+
+/***/ }),
+/* 86 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// This method of obtaining a reference to the global object needs to be
+// kept identical to the way it is obtained in runtime.js
+var g = (function() { return this })() || Function("return this")();
+
+// Use `getOwnPropertyNames` because not all browsers support calling
+// `hasOwnProperty` on the global `self` object in a worker. See #183.
+var hadRuntime = g.regeneratorRuntime &&
+  Object.getOwnPropertyNames(g).indexOf("regeneratorRuntime") >= 0;
+
+// Save the old regeneratorRuntime in case it needs to be restored later.
+var oldRuntime = hadRuntime && g.regeneratorRuntime;
+
+// Force reevalutation of runtime.js.
+g.regeneratorRuntime = undefined;
+
+module.exports = __webpack_require__(87);
+
+if (hadRuntime) {
+  // Restore the original runtime.
+  g.regeneratorRuntime = oldRuntime;
+} else {
+  // Remove the global property added by runtime.js.
+  try {
+    delete g.regeneratorRuntime;
+  } catch(e) {
+    g.regeneratorRuntime = undefined;
+  }
+}
+
+
+/***/ }),
+/* 87 */
+/***/ (function(module, exports) {
+
+/**
+ * Copyright (c) 2014, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * https://raw.github.com/facebook/regenerator/master/LICENSE file. An
+ * additional grant of patent rights can be found in the PATENTS file in
+ * the same directory.
+ */
+
+!(function(global) {
+  "use strict";
+
+  var Op = Object.prototype;
+  var hasOwn = Op.hasOwnProperty;
+  var undefined; // More compressible than void 0.
+  var $Symbol = typeof Symbol === "function" ? Symbol : {};
+  var iteratorSymbol = $Symbol.iterator || "@@iterator";
+  var asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator";
+  var toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag";
+
+  var inModule = typeof module === "object";
+  var runtime = global.regeneratorRuntime;
+  if (runtime) {
+    if (inModule) {
+      // If regeneratorRuntime is defined globally and we're in a module,
+      // make the exports object identical to regeneratorRuntime.
+      module.exports = runtime;
+    }
+    // Don't bother evaluating the rest of this file if the runtime was
+    // already defined globally.
+    return;
+  }
+
+  // Define the runtime globally (as expected by generated code) as either
+  // module.exports (if we're in a module) or a new, empty object.
+  runtime = global.regeneratorRuntime = inModule ? module.exports : {};
+
+  function wrap(innerFn, outerFn, self, tryLocsList) {
+    // If outerFn provided and outerFn.prototype is a Generator, then outerFn.prototype instanceof Generator.
+    var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator;
+    var generator = Object.create(protoGenerator.prototype);
+    var context = new Context(tryLocsList || []);
+
+    // The ._invoke method unifies the implementations of the .next,
+    // .throw, and .return methods.
+    generator._invoke = makeInvokeMethod(innerFn, self, context);
+
+    return generator;
+  }
+  runtime.wrap = wrap;
+
+  // Try/catch helper to minimize deoptimizations. Returns a completion
+  // record like context.tryEntries[i].completion. This interface could
+  // have been (and was previously) designed to take a closure to be
+  // invoked without arguments, but in all the cases we care about we
+  // already have an existing method we want to call, so there's no need
+  // to create a new function object. We can even get away with assuming
+  // the method takes exactly one argument, since that happens to be true
+  // in every case, so we don't have to touch the arguments object. The
+  // only additional allocation required is the completion record, which
+  // has a stable shape and so hopefully should be cheap to allocate.
+  function tryCatch(fn, obj, arg) {
+    try {
+      return { type: "normal", arg: fn.call(obj, arg) };
+    } catch (err) {
+      return { type: "throw", arg: err };
+    }
+  }
+
+  var GenStateSuspendedStart = "suspendedStart";
+  var GenStateSuspendedYield = "suspendedYield";
+  var GenStateExecuting = "executing";
+  var GenStateCompleted = "completed";
+
+  // Returning this object from the innerFn has the same effect as
+  // breaking out of the dispatch switch statement.
+  var ContinueSentinel = {};
+
+  // Dummy constructor functions that we use as the .constructor and
+  // .constructor.prototype properties for functions that return Generator
+  // objects. For full spec compliance, you may wish to configure your
+  // minifier not to mangle the names of these two functions.
+  function Generator() {}
+  function GeneratorFunction() {}
+  function GeneratorFunctionPrototype() {}
+
+  // This is a polyfill for %IteratorPrototype% for environments that
+  // don't natively support it.
+  var IteratorPrototype = {};
+  IteratorPrototype[iteratorSymbol] = function () {
+    return this;
+  };
+
+  var getProto = Object.getPrototypeOf;
+  var NativeIteratorPrototype = getProto && getProto(getProto(values([])));
+  if (NativeIteratorPrototype &&
+      NativeIteratorPrototype !== Op &&
+      hasOwn.call(NativeIteratorPrototype, iteratorSymbol)) {
+    // This environment has a native %IteratorPrototype%; use it instead
+    // of the polyfill.
+    IteratorPrototype = NativeIteratorPrototype;
+  }
+
+  var Gp = GeneratorFunctionPrototype.prototype =
+    Generator.prototype = Object.create(IteratorPrototype);
+  GeneratorFunction.prototype = Gp.constructor = GeneratorFunctionPrototype;
+  GeneratorFunctionPrototype.constructor = GeneratorFunction;
+  GeneratorFunctionPrototype[toStringTagSymbol] =
+    GeneratorFunction.displayName = "GeneratorFunction";
+
+  // Helper for defining the .next, .throw, and .return methods of the
+  // Iterator interface in terms of a single ._invoke method.
+  function defineIteratorMethods(prototype) {
+    ["next", "throw", "return"].forEach(function(method) {
+      prototype[method] = function(arg) {
+        return this._invoke(method, arg);
+      };
+    });
+  }
+
+  runtime.isGeneratorFunction = function(genFun) {
+    var ctor = typeof genFun === "function" && genFun.constructor;
+    return ctor
+      ? ctor === GeneratorFunction ||
+        // For the native GeneratorFunction constructor, the best we can
+        // do is to check its .name property.
+        (ctor.displayName || ctor.name) === "GeneratorFunction"
+      : false;
+  };
+
+  runtime.mark = function(genFun) {
+    if (Object.setPrototypeOf) {
+      Object.setPrototypeOf(genFun, GeneratorFunctionPrototype);
+    } else {
+      genFun.__proto__ = GeneratorFunctionPrototype;
+      if (!(toStringTagSymbol in genFun)) {
+        genFun[toStringTagSymbol] = "GeneratorFunction";
+      }
+    }
+    genFun.prototype = Object.create(Gp);
+    return genFun;
+  };
+
+  // Within the body of any async function, `await x` is transformed to
+  // `yield regeneratorRuntime.awrap(x)`, so that the runtime can test
+  // `hasOwn.call(value, "__await")` to determine if the yielded value is
+  // meant to be awaited.
+  runtime.awrap = function(arg) {
+    return { __await: arg };
+  };
+
+  function AsyncIterator(generator) {
+    function invoke(method, arg, resolve, reject) {
+      var record = tryCatch(generator[method], generator, arg);
+      if (record.type === "throw") {
+        reject(record.arg);
+      } else {
+        var result = record.arg;
+        var value = result.value;
+        if (value &&
+            typeof value === "object" &&
+            hasOwn.call(value, "__await")) {
+          return Promise.resolve(value.__await).then(function(value) {
+            invoke("next", value, resolve, reject);
+          }, function(err) {
+            invoke("throw", err, resolve, reject);
+          });
+        }
+
+        return Promise.resolve(value).then(function(unwrapped) {
+          // When a yielded Promise is resolved, its final value becomes
+          // the .value of the Promise<{value,done}> result for the
+          // current iteration. If the Promise is rejected, however, the
+          // result for this iteration will be rejected with the same
+          // reason. Note that rejections of yielded Promises are not
+          // thrown back into the generator function, as is the case
+          // when an awaited Promise is rejected. This difference in
+          // behavior between yield and await is important, because it
+          // allows the consumer to decide what to do with the yielded
+          // rejection (swallow it and continue, manually .throw it back
+          // into the generator, abandon iteration, whatever). With
+          // await, by contrast, there is no opportunity to examine the
+          // rejection reason outside the generator function, so the
+          // only option is to throw it from the await expression, and
+          // let the generator function handle the exception.
+          result.value = unwrapped;
+          resolve(result);
+        }, reject);
+      }
+    }
+
+    var previousPromise;
+
+    function enqueue(method, arg) {
+      function callInvokeWithMethodAndArg() {
+        return new Promise(function(resolve, reject) {
+          invoke(method, arg, resolve, reject);
+        });
+      }
+
+      return previousPromise =
+        // If enqueue has been called before, then we want to wait until
+        // all previous Promises have been resolved before calling invoke,
+        // so that results are always delivered in the correct order. If
+        // enqueue has not been called before, then it is important to
+        // call invoke immediately, without waiting on a callback to fire,
+        // so that the async generator function has the opportunity to do
+        // any necessary setup in a predictable way. This predictability
+        // is why the Promise constructor synchronously invokes its
+        // executor callback, and why async functions synchronously
+        // execute code before the first await. Since we implement simple
+        // async functions in terms of async generators, it is especially
+        // important to get this right, even though it requires care.
+        previousPromise ? previousPromise.then(
+          callInvokeWithMethodAndArg,
+          // Avoid propagating failures to Promises returned by later
+          // invocations of the iterator.
+          callInvokeWithMethodAndArg
+        ) : callInvokeWithMethodAndArg();
+    }
+
+    // Define the unified helper method that is used to implement .next,
+    // .throw, and .return (see defineIteratorMethods).
+    this._invoke = enqueue;
+  }
+
+  defineIteratorMethods(AsyncIterator.prototype);
+  AsyncIterator.prototype[asyncIteratorSymbol] = function () {
+    return this;
+  };
+  runtime.AsyncIterator = AsyncIterator;
+
+  // Note that simple async functions are implemented on top of
+  // AsyncIterator objects; they just return a Promise for the value of
+  // the final result produced by the iterator.
+  runtime.async = function(innerFn, outerFn, self, tryLocsList) {
+    var iter = new AsyncIterator(
+      wrap(innerFn, outerFn, self, tryLocsList)
+    );
+
+    return runtime.isGeneratorFunction(outerFn)
+      ? iter // If outerFn is a generator, return the full iterator.
+      : iter.next().then(function(result) {
+          return result.done ? result.value : iter.next();
+        });
+  };
+
+  function makeInvokeMethod(innerFn, self, context) {
+    var state = GenStateSuspendedStart;
+
+    return function invoke(method, arg) {
+      if (state === GenStateExecuting) {
+        throw new Error("Generator is already running");
+      }
+
+      if (state === GenStateCompleted) {
+        if (method === "throw") {
+          throw arg;
+        }
+
+        // Be forgiving, per 25.3.3.3.3 of the spec:
+        // https://people.mozilla.org/~jorendorff/es6-draft.html#sec-generatorresume
+        return doneResult();
+      }
+
+      context.method = method;
+      context.arg = arg;
+
+      while (true) {
+        var delegate = context.delegate;
+        if (delegate) {
+          var delegateResult = maybeInvokeDelegate(delegate, context);
+          if (delegateResult) {
+            if (delegateResult === ContinueSentinel) continue;
+            return delegateResult;
+          }
+        }
+
+        if (context.method === "next") {
+          // Setting context._sent for legacy support of Babel's
+          // function.sent implementation.
+          context.sent = context._sent = context.arg;
+
+        } else if (context.method === "throw") {
+          if (state === GenStateSuspendedStart) {
+            state = GenStateCompleted;
+            throw context.arg;
+          }
+
+          context.dispatchException(context.arg);
+
+        } else if (context.method === "return") {
+          context.abrupt("return", context.arg);
+        }
+
+        state = GenStateExecuting;
+
+        var record = tryCatch(innerFn, self, context);
+        if (record.type === "normal") {
+          // If an exception is thrown from innerFn, we leave state ===
+          // GenStateExecuting and loop back for another invocation.
+          state = context.done
+            ? GenStateCompleted
+            : GenStateSuspendedYield;
+
+          if (record.arg === ContinueSentinel) {
+            continue;
+          }
+
+          return {
+            value: record.arg,
+            done: context.done
+          };
+
+        } else if (record.type === "throw") {
+          state = GenStateCompleted;
+          // Dispatch the exception by looping back around to the
+          // context.dispatchException(context.arg) call above.
+          context.method = "throw";
+          context.arg = record.arg;
+        }
+      }
+    };
+  }
+
+  // Call delegate.iterator[context.method](context.arg) and handle the
+  // result, either by returning a { value, done } result from the
+  // delegate iterator, or by modifying context.method and context.arg,
+  // setting context.delegate to null, and returning the ContinueSentinel.
+  function maybeInvokeDelegate(delegate, context) {
+    var method = delegate.iterator[context.method];
+    if (method === undefined) {
+      // A .throw or .return when the delegate iterator has no .throw
+      // method always terminates the yield* loop.
+      context.delegate = null;
+
+      if (context.method === "throw") {
+        if (delegate.iterator.return) {
+          // If the delegate iterator has a return method, give it a
+          // chance to clean up.
+          context.method = "return";
+          context.arg = undefined;
+          maybeInvokeDelegate(delegate, context);
+
+          if (context.method === "throw") {
+            // If maybeInvokeDelegate(context) changed context.method from
+            // "return" to "throw", let that override the TypeError below.
+            return ContinueSentinel;
+          }
+        }
+
+        context.method = "throw";
+        context.arg = new TypeError(
+          "The iterator does not provide a 'throw' method");
+      }
+
+      return ContinueSentinel;
+    }
+
+    var record = tryCatch(method, delegate.iterator, context.arg);
+
+    if (record.type === "throw") {
+      context.method = "throw";
+      context.arg = record.arg;
+      context.delegate = null;
+      return ContinueSentinel;
+    }
+
+    var info = record.arg;
+
+    if (! info) {
+      context.method = "throw";
+      context.arg = new TypeError("iterator result is not an object");
+      context.delegate = null;
+      return ContinueSentinel;
+    }
+
+    if (info.done) {
+      // Assign the result of the finished delegate to the temporary
+      // variable specified by delegate.resultName (see delegateYield).
+      context[delegate.resultName] = info.value;
+
+      // Resume execution at the desired location (see delegateYield).
+      context.next = delegate.nextLoc;
+
+      // If context.method was "throw" but the delegate handled the
+      // exception, let the outer generator proceed normally. If
+      // context.method was "next", forget context.arg since it has been
+      // "consumed" by the delegate iterator. If context.method was
+      // "return", allow the original .return call to continue in the
+      // outer generator.
+      if (context.method !== "return") {
+        context.method = "next";
+        context.arg = undefined;
+      }
+
+    } else {
+      // Re-yield the result returned by the delegate method.
+      return info;
+    }
+
+    // The delegate iterator is finished, so forget it and continue with
+    // the outer generator.
+    context.delegate = null;
+    return ContinueSentinel;
+  }
+
+  // Define Generator.prototype.{next,throw,return} in terms of the
+  // unified ._invoke helper method.
+  defineIteratorMethods(Gp);
+
+  Gp[toStringTagSymbol] = "Generator";
+
+  // A Generator should always return itself as the iterator object when the
+  // @@iterator function is called on it. Some browsers' implementations of the
+  // iterator prototype chain incorrectly implement this, causing the Generator
+  // object to not be returned from this call. This ensures that doesn't happen.
+  // See https://github.com/facebook/regenerator/issues/274 for more details.
+  Gp[iteratorSymbol] = function() {
+    return this;
+  };
+
+  Gp.toString = function() {
+    return "[object Generator]";
+  };
+
+  function pushTryEntry(locs) {
+    var entry = { tryLoc: locs[0] };
+
+    if (1 in locs) {
+      entry.catchLoc = locs[1];
+    }
+
+    if (2 in locs) {
+      entry.finallyLoc = locs[2];
+      entry.afterLoc = locs[3];
+    }
+
+    this.tryEntries.push(entry);
+  }
+
+  function resetTryEntry(entry) {
+    var record = entry.completion || {};
+    record.type = "normal";
+    delete record.arg;
+    entry.completion = record;
+  }
+
+  function Context(tryLocsList) {
+    // The root entry object (effectively a try statement without a catch
+    // or a finally block) gives us a place to store values thrown from
+    // locations where there is no enclosing try statement.
+    this.tryEntries = [{ tryLoc: "root" }];
+    tryLocsList.forEach(pushTryEntry, this);
+    this.reset(true);
+  }
+
+  runtime.keys = function(object) {
+    var keys = [];
+    for (var key in object) {
+      keys.push(key);
+    }
+    keys.reverse();
+
+    // Rather than returning an object with a next method, we keep
+    // things simple and return the next function itself.
+    return function next() {
+      while (keys.length) {
+        var key = keys.pop();
+        if (key in object) {
+          next.value = key;
+          next.done = false;
+          return next;
+        }
+      }
+
+      // To avoid creating an additional object, we just hang the .value
+      // and .done properties off the next function object itself. This
+      // also ensures that the minifier will not anonymize the function.
+      next.done = true;
+      return next;
+    };
+  };
+
+  function values(iterable) {
+    if (iterable) {
+      var iteratorMethod = iterable[iteratorSymbol];
+      if (iteratorMethod) {
+        return iteratorMethod.call(iterable);
+      }
+
+      if (typeof iterable.next === "function") {
+        return iterable;
+      }
+
+      if (!isNaN(iterable.length)) {
+        var i = -1, next = function next() {
+          while (++i < iterable.length) {
+            if (hasOwn.call(iterable, i)) {
+              next.value = iterable[i];
+              next.done = false;
+              return next;
+            }
+          }
+
+          next.value = undefined;
+          next.done = true;
+
+          return next;
+        };
+
+        return next.next = next;
+      }
+    }
+
+    // Return an iterator with no values.
+    return { next: doneResult };
+  }
+  runtime.values = values;
+
+  function doneResult() {
+    return { value: undefined, done: true };
+  }
+
+  Context.prototype = {
+    constructor: Context,
+
+    reset: function(skipTempReset) {
+      this.prev = 0;
+      this.next = 0;
+      // Resetting context._sent for legacy support of Babel's
+      // function.sent implementation.
+      this.sent = this._sent = undefined;
+      this.done = false;
+      this.delegate = null;
+
+      this.method = "next";
+      this.arg = undefined;
+
+      this.tryEntries.forEach(resetTryEntry);
+
+      if (!skipTempReset) {
+        for (var name in this) {
+          // Not sure about the optimal order of these conditions:
+          if (name.charAt(0) === "t" &&
+              hasOwn.call(this, name) &&
+              !isNaN(+name.slice(1))) {
+            this[name] = undefined;
+          }
+        }
+      }
+    },
+
+    stop: function() {
+      this.done = true;
+
+      var rootEntry = this.tryEntries[0];
+      var rootRecord = rootEntry.completion;
+      if (rootRecord.type === "throw") {
+        throw rootRecord.arg;
+      }
+
+      return this.rval;
+    },
+
+    dispatchException: function(exception) {
+      if (this.done) {
+        throw exception;
+      }
+
+      var context = this;
+      function handle(loc, caught) {
+        record.type = "throw";
+        record.arg = exception;
+        context.next = loc;
+
+        if (caught) {
+          // If the dispatched exception was caught by a catch block,
+          // then let that catch block handle the exception normally.
+          context.method = "next";
+          context.arg = undefined;
+        }
+
+        return !! caught;
+      }
+
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        var record = entry.completion;
+
+        if (entry.tryLoc === "root") {
+          // Exception thrown outside of any try block that could handle
+          // it, so set the completion value of the entire function to
+          // throw the exception.
+          return handle("end");
+        }
+
+        if (entry.tryLoc <= this.prev) {
+          var hasCatch = hasOwn.call(entry, "catchLoc");
+          var hasFinally = hasOwn.call(entry, "finallyLoc");
+
+          if (hasCatch && hasFinally) {
+            if (this.prev < entry.catchLoc) {
+              return handle(entry.catchLoc, true);
+            } else if (this.prev < entry.finallyLoc) {
+              return handle(entry.finallyLoc);
+            }
+
+          } else if (hasCatch) {
+            if (this.prev < entry.catchLoc) {
+              return handle(entry.catchLoc, true);
+            }
+
+          } else if (hasFinally) {
+            if (this.prev < entry.finallyLoc) {
+              return handle(entry.finallyLoc);
+            }
+
+          } else {
+            throw new Error("try statement without catch or finally");
+          }
+        }
+      }
+    },
+
+    abrupt: function(type, arg) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.tryLoc <= this.prev &&
+            hasOwn.call(entry, "finallyLoc") &&
+            this.prev < entry.finallyLoc) {
+          var finallyEntry = entry;
+          break;
+        }
+      }
+
+      if (finallyEntry &&
+          (type === "break" ||
+           type === "continue") &&
+          finallyEntry.tryLoc <= arg &&
+          arg <= finallyEntry.finallyLoc) {
+        // Ignore the finally entry if control is not jumping to a
+        // location outside the try/catch block.
+        finallyEntry = null;
+      }
+
+      var record = finallyEntry ? finallyEntry.completion : {};
+      record.type = type;
+      record.arg = arg;
+
+      if (finallyEntry) {
+        this.method = "next";
+        this.next = finallyEntry.finallyLoc;
+        return ContinueSentinel;
+      }
+
+      return this.complete(record);
+    },
+
+    complete: function(record, afterLoc) {
+      if (record.type === "throw") {
+        throw record.arg;
+      }
+
+      if (record.type === "break" ||
+          record.type === "continue") {
+        this.next = record.arg;
+      } else if (record.type === "return") {
+        this.rval = this.arg = record.arg;
+        this.method = "return";
+        this.next = "end";
+      } else if (record.type === "normal" && afterLoc) {
+        this.next = afterLoc;
+      }
+
+      return ContinueSentinel;
+    },
+
+    finish: function(finallyLoc) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.finallyLoc === finallyLoc) {
+          this.complete(entry.completion, entry.afterLoc);
+          resetTryEntry(entry);
+          return ContinueSentinel;
+        }
+      }
+    },
+
+    "catch": function(tryLoc) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.tryLoc === tryLoc) {
+          var record = entry.completion;
+          if (record.type === "throw") {
+            var thrown = record.arg;
+            resetTryEntry(entry);
+          }
+          return thrown;
+        }
+      }
+
+      // The context.catch method must only be called with a location
+      // argument that corresponds to a known catch block.
+      throw new Error("illegal catch attempt");
+    },
+
+    delegateYield: function(iterable, resultName, nextLoc) {
+      this.delegate = {
+        iterator: values(iterable),
+        resultName: resultName,
+        nextLoc: nextLoc
+      };
+
+      if (this.method === "next") {
+        // Deliberately forget the last sent value so that we don't
+        // accidentally pass it on to the delegate.
+        this.arg = undefined;
+      }
+
+      return ContinueSentinel;
+    }
+  };
+})(
+  // In sloppy mode, unbound `this` refers to the global object, fallback to
+  // Function constructor if we're in global strict mode. That is sadly a form
+  // of indirect eval which violates Content Security Policy.
+  (function() { return this })() || Function("return this")()
+);
+
+
+/***/ }),
+/* 88 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(89);
+module.exports = __webpack_require__(0).Object.keys;
+
+
+/***/ }),
+/* 89 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// 19.1.2.14 Object.keys(O)
+var toObject = __webpack_require__(22);
+var $keys = __webpack_require__(15);
+
+__webpack_require__(53)('keys', function () {
+  return function keys(it) {
+    return $keys(toObject(it));
+  };
+});
+
+
+/***/ }),
+/* 90 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _promise = __webpack_require__(25);
+
+var _promise2 = _interopRequireDefault(_promise);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function (fn) {
+  return function () {
+    var gen = fn.apply(this, arguments);
+    return new _promise2.default(function (resolve, reject) {
+      function step(key, arg) {
+        try {
+          var info = gen[key](arg);
+          var value = info.value;
+        } catch (error) {
+          reject(error);
+          return;
+        }
+
+        if (info.done) {
+          resolve(value);
+        } else {
+          return _promise2.default.resolve(value).then(function (value) {
+            step("next", value);
+          }, function (err) {
+            step("throw", err);
+          });
+        }
+      }
+
+      return step("next");
+    });
+  };
+};
+
+/***/ }),
+/* 91 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(54);
+__webpack_require__(37);
+__webpack_require__(35);
+__webpack_require__(92);
+__webpack_require__(102);
+__webpack_require__(103);
+module.exports = __webpack_require__(0).Promise;
+
+
+/***/ }),
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2111,18 +3549,18 @@ module.exports = function (done, value) {
 var LIBRARY = __webpack_require__(23);
 var global = __webpack_require__(1);
 var ctx = __webpack_require__(14);
-var classof = __webpack_require__(53);
+var classof = __webpack_require__(52);
 var $export = __webpack_require__(3);
 var isObject = __webpack_require__(8);
 var aFunction = __webpack_require__(18);
-var anInstance = __webpack_require__(85);
-var forOf = __webpack_require__(86);
-var speciesConstructor = __webpack_require__(54);
-var task = __webpack_require__(55).set;
-var microtask = __webpack_require__(91)();
-var newPromiseCapabilityModule = __webpack_require__(36);
-var perform = __webpack_require__(56);
-var promiseResolve = __webpack_require__(57);
+var anInstance = __webpack_require__(93);
+var forOf = __webpack_require__(94);
+var speciesConstructor = __webpack_require__(55);
+var task = __webpack_require__(56).set;
+var microtask = __webpack_require__(98)();
+var newPromiseCapabilityModule = __webpack_require__(39);
+var perform = __webpack_require__(57);
+var promiseResolve = __webpack_require__(58);
 var PROMISE = 'Promise';
 var TypeError = global.TypeError;
 var process = global.process;
@@ -2292,7 +3730,7 @@ if (!USE_NATIVE) {
     this._h = 0;              // <- rejection state, 0 - default, 1 - handled, 2 - unhandled
     this._n = false;          // <- notify
   };
-  Internal.prototype = __webpack_require__(92)($Promise.prototype, {
+  Internal.prototype = __webpack_require__(99)($Promise.prototype, {
     // 25.4.5.3 Promise.prototype.then(onFulfilled, onRejected)
     then: function then(onFulfilled, onRejected) {
       var reaction = newPromiseCapability(speciesConstructor(this, $Promise));
@@ -2324,7 +3762,7 @@ if (!USE_NATIVE) {
 
 $export($export.G + $export.W + $export.F * !USE_NATIVE, { Promise: $Promise });
 __webpack_require__(24)($Promise, PROMISE);
-__webpack_require__(93)(PROMISE);
+__webpack_require__(100)(PROMISE);
 Wrapper = __webpack_require__(0)[PROMISE];
 
 // statics
@@ -2343,7 +3781,7 @@ $export($export.S + $export.F * (LIBRARY || !USE_NATIVE), PROMISE, {
     return promiseResolve(LIBRARY && this === Wrapper ? $Promise : this, x);
   }
 });
-$export($export.S + $export.F * !(USE_NATIVE && __webpack_require__(94)(function (iter) {
+$export($export.S + $export.F * !(USE_NATIVE && __webpack_require__(101)(function (iter) {
   $Promise.all(iter)['catch'](empty);
 })), PROMISE, {
   // 25.4.4.1 Promise.all(iterable)
@@ -2390,7 +3828,7 @@ $export($export.S + $export.F * !(USE_NATIVE && __webpack_require__(94)(function
 
 
 /***/ }),
-/* 85 */
+/* 93 */
 /***/ (function(module, exports) {
 
 module.exports = function (it, Constructor, name, forbiddenField) {
@@ -2401,15 +3839,15 @@ module.exports = function (it, Constructor, name, forbiddenField) {
 
 
 /***/ }),
-/* 86 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var ctx = __webpack_require__(14);
-var call = __webpack_require__(87);
-var isArrayIter = __webpack_require__(88);
+var call = __webpack_require__(95);
+var isArrayIter = __webpack_require__(96);
 var anObject = __webpack_require__(4);
-var toLength = __webpack_require__(43);
-var getIterFn = __webpack_require__(89);
+var toLength = __webpack_require__(46);
+var getIterFn = __webpack_require__(51);
 var BREAK = {};
 var RETURN = {};
 var exports = module.exports = function (iterable, entries, fn, that, ITERATOR) {
@@ -2432,7 +3870,7 @@ exports.RETURN = RETURN;
 
 
 /***/ }),
-/* 87 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // call something on iterator step with safe closing on error
@@ -2450,7 +3888,7 @@ module.exports = function (iterator, fn, value, entries) {
 
 
 /***/ }),
-/* 88 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // check on default Array iterator
@@ -2464,21 +3902,7 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 89 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var classof = __webpack_require__(53);
-var ITERATOR = __webpack_require__(2)('iterator');
-var Iterators = __webpack_require__(17);
-module.exports = __webpack_require__(0).getIteratorMethod = function (it) {
-  if (it != undefined) return it[ITERATOR]
-    || it['@@iterator']
-    || Iterators[classof(it)];
-};
-
-
-/***/ }),
-/* 90 */
+/* 97 */
 /***/ (function(module, exports) {
 
 // fast apply, http://jsperf.lnkit.com/fast-apply/5
@@ -2500,11 +3924,11 @@ module.exports = function (fn, args, that) {
 
 
 /***/ }),
-/* 91 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var global = __webpack_require__(1);
-var macrotask = __webpack_require__(55).set;
+var macrotask = __webpack_require__(56).set;
 var Observer = global.MutationObserver || global.WebKitMutationObserver;
 var process = global.process;
 var Promise = global.Promise;
@@ -2574,7 +3998,7 @@ module.exports = function () {
 
 
 /***/ }),
-/* 92 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var hide = __webpack_require__(7);
@@ -2587,7 +4011,7 @@ module.exports = function (target, src, safe) {
 
 
 /***/ }),
-/* 93 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2608,7 +4032,7 @@ module.exports = function (KEY) {
 
 
 /***/ }),
-/* 94 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var ITERATOR = __webpack_require__(2)('iterator');
@@ -2636,7 +4060,7 @@ module.exports = function (exec, skipClosing) {
 
 
 /***/ }),
-/* 95 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2645,8 +4069,8 @@ module.exports = function (exec, skipClosing) {
 var $export = __webpack_require__(3);
 var core = __webpack_require__(0);
 var global = __webpack_require__(1);
-var speciesConstructor = __webpack_require__(54);
-var promiseResolve = __webpack_require__(57);
+var speciesConstructor = __webpack_require__(55);
+var promiseResolve = __webpack_require__(58);
 
 $export($export.P + $export.R, 'Promise', { 'finally': function (onFinally) {
   var C = speciesConstructor(this, core.Promise || global.Promise);
@@ -2663,15 +4087,15 @@ $export($export.P + $export.R, 'Promise', { 'finally': function (onFinally) {
 
 
 /***/ }),
-/* 96 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 // https://github.com/tc39/proposal-promise-try
 var $export = __webpack_require__(3);
-var newPromiseCapability = __webpack_require__(36);
-var perform = __webpack_require__(56);
+var newPromiseCapability = __webpack_require__(39);
+var perform = __webpack_require__(57);
 
 $export($export.S, 'Promise', { 'try': function (callbackfn) {
   var promiseCapability = newPromiseCapability.f(this);
@@ -2682,22 +4106,22 @@ $export($export.S, 'Promise', { 'try': function (callbackfn) {
 
 
 /***/ }),
-/* 97 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(98);
+__webpack_require__(105);
 module.exports = __webpack_require__(0).Object.getPrototypeOf;
 
 
 /***/ }),
-/* 98 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.9 Object.getPrototypeOf(O)
 var toObject = __webpack_require__(22);
-var $getPrototypeOf = __webpack_require__(51);
+var $getPrototypeOf = __webpack_require__(50);
 
-__webpack_require__(44)('getPrototypeOf', function () {
+__webpack_require__(53)('getPrototypeOf', function () {
   return function getPrototypeOf(it) {
     return $getPrototypeOf(toObject(it));
   };
@@ -2705,39 +4129,39 @@ __webpack_require__(44)('getPrototypeOf', function () {
 
 
 /***/ }),
-/* 99 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(100), __esModule: true };
+module.exports = { "default": __webpack_require__(107), __esModule: true };
 
 /***/ }),
-/* 100 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(47);
-__webpack_require__(52);
-module.exports = __webpack_require__(37).f('iterator');
+__webpack_require__(37);
+__webpack_require__(35);
+module.exports = __webpack_require__(40).f('iterator');
 
 
 /***/ }),
-/* 101 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(102), __esModule: true };
+module.exports = { "default": __webpack_require__(109), __esModule: true };
 
 /***/ }),
-/* 102 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(103);
-__webpack_require__(46);
-__webpack_require__(108);
-__webpack_require__(109);
+__webpack_require__(110);
+__webpack_require__(54);
+__webpack_require__(115);
+__webpack_require__(116);
 module.exports = __webpack_require__(0).Symbol;
 
 
 /***/ }),
-/* 103 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2747,24 +4171,24 @@ var global = __webpack_require__(1);
 var has = __webpack_require__(9);
 var DESCRIPTORS = __webpack_require__(6);
 var $export = __webpack_require__(3);
-var redefine = __webpack_require__(49);
-var META = __webpack_require__(104).KEY;
+var redefine = __webpack_require__(48);
+var META = __webpack_require__(111).KEY;
 var $fails = __webpack_require__(10);
-var shared = __webpack_require__(31);
+var shared = __webpack_require__(32);
 var setToStringTag = __webpack_require__(24);
 var uid = __webpack_require__(20);
 var wks = __webpack_require__(2);
-var wksExt = __webpack_require__(37);
-var wksDefine = __webpack_require__(38);
-var enumKeys = __webpack_require__(105);
-var isArray = __webpack_require__(106);
+var wksExt = __webpack_require__(40);
+var wksDefine = __webpack_require__(41);
+var enumKeys = __webpack_require__(112);
+var isArray = __webpack_require__(113);
 var anObject = __webpack_require__(4);
 var toIObject = __webpack_require__(11);
-var toPrimitive = __webpack_require__(27);
+var toPrimitive = __webpack_require__(28);
 var createDesc = __webpack_require__(19);
-var _create = __webpack_require__(35);
-var gOPNExt = __webpack_require__(107);
-var $GOPD = __webpack_require__(62);
+var _create = __webpack_require__(36);
+var gOPNExt = __webpack_require__(114);
+var $GOPD = __webpack_require__(63);
 var $DP = __webpack_require__(5);
 var $keys = __webpack_require__(15);
 var gOPD = $GOPD.f;
@@ -2889,9 +4313,9 @@ if (!USE_NATIVE) {
 
   $GOPD.f = $getOwnPropertyDescriptor;
   $DP.f = $defineProperty;
-  __webpack_require__(61).f = gOPNExt.f = $getOwnPropertyNames;
+  __webpack_require__(62).f = gOPNExt.f = $getOwnPropertyNames;
   __webpack_require__(21).f = $propertyIsEnumerable;
-  __webpack_require__(33).f = $getOwnPropertySymbols;
+  __webpack_require__(34).f = $getOwnPropertySymbols;
 
   if (DESCRIPTORS && !__webpack_require__(23)) {
     redefine(ObjectProto, 'propertyIsEnumerable', $propertyIsEnumerable, true);
@@ -2978,7 +4402,7 @@ setToStringTag(global.JSON, 'JSON', true);
 
 
 /***/ }),
-/* 104 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var META = __webpack_require__(20)('meta');
@@ -3037,12 +4461,12 @@ var meta = module.exports = {
 
 
 /***/ }),
-/* 105 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // all enumerable object keys, includes symbols
 var getKeys = __webpack_require__(15);
-var gOPS = __webpack_require__(33);
+var gOPS = __webpack_require__(34);
 var pIE = __webpack_require__(21);
 module.exports = function (it) {
   var result = getKeys(it);
@@ -3058,7 +4482,7 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 106 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 7.2.2 IsArray(argument)
@@ -3069,12 +4493,12 @@ module.exports = Array.isArray || function isArray(arg) {
 
 
 /***/ }),
-/* 107 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // fallback for IE11 buggy Object.getOwnPropertyNames with iframe and window
 var toIObject = __webpack_require__(11);
-var gOPN = __webpack_require__(61).f;
+var gOPN = __webpack_require__(62).f;
 var toString = {}.toString;
 
 var windowNames = typeof window == 'object' && window && Object.getOwnPropertyNames
@@ -3094,44 +4518,44 @@ module.exports.f = function getOwnPropertyNames(it) {
 
 
 /***/ }),
-/* 108 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(38)('asyncIterator');
+__webpack_require__(41)('asyncIterator');
 
 
 /***/ }),
-/* 109 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(38)('observable');
+__webpack_require__(41)('observable');
 
 
 /***/ }),
-/* 110 */
+/* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(111), __esModule: true };
+module.exports = { "default": __webpack_require__(118), __esModule: true };
 
 /***/ }),
-/* 111 */
+/* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(112);
+__webpack_require__(119);
 module.exports = __webpack_require__(0).Object.setPrototypeOf;
 
 
 /***/ }),
-/* 112 */
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.3.19 Object.setPrototypeOf(O, proto)
 var $export = __webpack_require__(3);
-$export($export.S, 'Object', { setPrototypeOf: __webpack_require__(113).set });
+$export($export.S, 'Object', { setPrototypeOf: __webpack_require__(120).set });
 
 
 /***/ }),
-/* 113 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Works with __proto__ only. Old v8 can't work with null proto objects.
@@ -3146,7 +4570,7 @@ module.exports = {
   set: Object.setPrototypeOf || ('__proto__' in {} ? // eslint-disable-line
     function (test, buggy, set) {
       try {
-        set = __webpack_require__(14)(Function.call, __webpack_require__(62).f(Object.prototype, '__proto__').set, 2);
+        set = __webpack_require__(14)(Function.call, __webpack_require__(63).f(Object.prototype, '__proto__').set, 2);
         set(test, []);
         buggy = !(test instanceof Array);
       } catch (e) { buggy = true; }
@@ -3162,16 +4586,16 @@ module.exports = {
 
 
 /***/ }),
-/* 114 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(115), __esModule: true };
+module.exports = { "default": __webpack_require__(122), __esModule: true };
 
 /***/ }),
-/* 115 */
+/* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(116);
+__webpack_require__(123);
 var $Object = __webpack_require__(0).Object;
 module.exports = function create(P, D) {
   return $Object.create(P, D);
@@ -3179,16 +4603,16 @@ module.exports = function create(P, D) {
 
 
 /***/ }),
-/* 116 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $export = __webpack_require__(3);
 // 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
-$export($export.S, 'Object', { create: __webpack_require__(35) });
+$export($export.S, 'Object', { create: __webpack_require__(36) });
 
 
 /***/ }),
-/* 117 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3198,7 +4622,7 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _keys = __webpack_require__(34);
+var _keys = __webpack_require__(38);
 
 var _keys2 = _interopRequireDefault(_keys);
 
@@ -3321,10 +4745,22 @@ var Query = function () {
 			return text;
 		}
 	}, {
+		key: 'escapeFieldValue',
+		value: function escapeFieldValue(val) {
+			if (typeof val === 'string') return '"' + val.replace(/\"/g, '\"') + '"';
+			if (val === null) return 'NULL';
+
+			return val;
+		}
+	}, {
 		key: 'insertValues',
-		value: function insertValues(arInsert) {
+		value: function insertValues(arInsert, fields) {
+			var _this = this;
+
 			var insertSerial = function insertSerial(insert) {
-				return '(' + insert.join(',') + ')';
+				return '(' + fields.map(function (field, inx) {
+					return _this.escapeFieldValue(insert[inx] || null);
+				}).join(',') + ')';
 			};
 
 			if (Array.isArray(arInsert[0])) {
@@ -3340,7 +4776,7 @@ var Query = function () {
 exports.default = Query;
 
 /***/ }),
-/* 118 */
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3350,19 +4786,19 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _keys = __webpack_require__(34);
+var _keys = __webpack_require__(38);
 
 var _keys2 = _interopRequireDefault(_keys);
 
-var _promise = __webpack_require__(45);
+var _promise = __webpack_require__(25);
 
 var _promise2 = _interopRequireDefault(_promise);
 
-var _extends2 = __webpack_require__(25);
+var _extends2 = __webpack_require__(26);
 
 var _extends3 = _interopRequireDefault(_extends2);
 
-var _getPrototypeOf = __webpack_require__(58);
+var _getPrototypeOf = __webpack_require__(59);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
@@ -3374,19 +4810,19 @@ var _createClass2 = __webpack_require__(13);
 
 var _createClass3 = _interopRequireDefault(_createClass2);
 
-var _possibleConstructorReturn2 = __webpack_require__(59);
+var _possibleConstructorReturn2 = __webpack_require__(60);
 
 var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
 
-var _inherits2 = __webpack_require__(63);
+var _inherits2 = __webpack_require__(64);
 
 var _inherits3 = _interopRequireDefault(_inherits2);
 
-var _QueryBuilder = __webpack_require__(119);
+var _QueryBuilder = __webpack_require__(126);
 
 var _QueryBuilder2 = _interopRequireDefault(_QueryBuilder);
 
-var _DriverInterface2 = __webpack_require__(39);
+var _DriverInterface2 = __webpack_require__(42);
 
 var _DriverInterface3 = _interopRequireDefault(_DriverInterface2);
 
@@ -3402,7 +4838,7 @@ var IndexedDb = function (_DriverInterface) {
 		var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 		(0, _classCallCheck3.default)(this, IndexedDb);
 
-		var _this = (0, _possibleConstructorReturn3.default)(this, (IndexedDb.__proto__ || (0, _getPrototypeOf2.default)(IndexedDb)).call(this));
+		var _this = (0, _possibleConstructorReturn3.default)(this, (IndexedDb.__proto__ || (0, _getPrototypeOf2.default)(IndexedDb)).call(this, params));
 
 		var that = _this;
 
@@ -3429,6 +4865,12 @@ var IndexedDb = function (_DriverInterface) {
 		value: function isOpen() {
 			return Boolean(this._db !== null);
 		}
+
+		/**
+   * Drop database.
+   * @returns {Promise}
+   */
+
 	}, {
 		key: "drop",
 		value: function drop() {
@@ -3452,15 +4894,18 @@ var IndexedDb = function (_DriverInterface) {
 		}
 
 		/**
+   * Init database. If database is empty crete tables
    *
-   * @param objectTables {object}
+   * @param objectTables {object} Object structure tables. When key is name table, values is structure fields.
    * @returns {Promise}
    */
 
 	}, {
 		key: "init",
-		value: function init(objectTables) {
+		value: function init() {
 			var _this2 = this;
+
+			var objectTables = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
 			var that = this;
 
@@ -3487,6 +4932,15 @@ var IndexedDb = function (_DriverInterface) {
 				};
 			});
 		}
+
+		/**
+   *
+   * @param db
+   * @param table
+   * @param fields
+   * @private
+   */
+
 	}, {
 		key: "_createTable",
 		value: function _createTable(db, table, fields) {
@@ -3525,6 +4979,15 @@ var IndexedDb = function (_DriverInterface) {
 				store.createIndex(indexName, data.field, data.index);
 			});
 		}
+
+		/**
+   * Insert record to database.
+   * @param {string} table Table name
+   * @param {array} fields Array name fields.
+   * @param {array} arInsert Array values
+   * @returns {Promise}
+   */
+
 	}, {
 		key: "insert",
 		value: function insert(table, fields, arInsert) {
@@ -3565,6 +5028,12 @@ var IndexedDb = function (_DriverInterface) {
 				return ok(that._isEmpty);
 			});
 		}
+		/**
+   * Get all record from table
+   * @param {string} table Table name
+   * @returns {Promise}
+   */
+
 	}, {
 		key: "getAll",
 		value: function getAll(table) {
@@ -3582,6 +5051,14 @@ var IndexedDb = function (_DriverInterface) {
 				};
 			});
 		}
+
+		/**
+   * Get record by primary key value.
+   * @param {string} table Table name
+   * @param {*} pkValue Primary key value.
+   * @returns {Promise}
+   */
+
 	}, {
 		key: "getByPk",
 		value: function getByPk(table, pkValue) {
@@ -3599,6 +5076,15 @@ var IndexedDb = function (_DriverInterface) {
 				};
 			});
 		}
+
+		/**
+   * Get record by require index.
+   * @param {string} table Table name
+   * @param {string}indexRequire Name index what be require.
+   * @param {*} indexValue Value index
+   * @returns {Promise}
+   */
+
 	}, {
 		key: "getByRequire",
 		value: function getByRequire(table, indexRequire, indexValue) {
@@ -3619,10 +5105,9 @@ var IndexedDb = function (_DriverInterface) {
 		}
 
 		/**
-   *
-   * @param table {string}
-   * @param setFields {string}
-   * @param where {string| null}
+   * Update or insert record to table.
+   * @param {string} table Table name
+   * @param {object} newFields Object insert or update.
    * @returns {Promise}
    */
 
@@ -3643,6 +5128,15 @@ var IndexedDb = function (_DriverInterface) {
 				};
 			});
 		}
+
+		/**
+   * Update record by primary key.
+   * @param {string} table Table name
+   * @param {*} pkValue Primary key value.
+   * @param {object} changeFields Object change fields with new values.
+   * @returns {Promise}
+   */
+
 	}, {
 		key: "updateByPk",
 		value: function updateByPk(table, pkValue, changeFields) {
@@ -3656,9 +5150,8 @@ var IndexedDb = function (_DriverInterface) {
 		}
 
 		/**
-   *
-   * @param table {string}
-   * @param where {string}
+   * Remove all records from table
+   * @param {string} table Table name
    * @returns {Promise}
    */
 
@@ -3679,6 +5172,13 @@ var IndexedDb = function (_DriverInterface) {
 				};
 			});
 		}
+		/**
+   * Get record by primary key value.
+   * @param {string} table Table name
+   * @param {*} pkValue Primary key value.
+   * @returns {Promise}
+   */
+
 	}, {
 		key: "removeByPk",
 		value: function removeByPk(table, pkValue) {
@@ -3696,6 +5196,11 @@ var IndexedDb = function (_DriverInterface) {
 				};
 			});
 		}
+
+		/**
+   * Close database.
+   */
+
 	}, {
 		key: "close",
 		value: function close() {
@@ -3709,7 +5214,7 @@ var IndexedDb = function (_DriverInterface) {
 exports.default = IndexedDb;
 
 /***/ }),
-/* 119 */
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3735,28 +5240,7 @@ var Query = function () {
 	}
 
 	(0, _createClass3.default)(Query, [{
-		key: 'select',
-		value: function select(table, fields, where, limit, offset) {
-			var text = 'SELECT ' + fields + ' FROM ' + table + ' ';
-
-			if (where) {
-				text += 'WHERE ' + where + ' ';
-			}
-
-			if (limit) {
-				text += 'LIMIT ' + limit + ' ';
-			}
-
-			if (offset) {
-				text += 'LIMIT ' + offset + ' ';
-			}
-
-			text += ';';
-
-			return text;
-		}
-	}, {
-		key: 'insertValues',
+		key: "insertValues",
 		value: function insertValues(fields, arInsert) {
 			var insertSerial = function insertSerial(insert) {
 				var res = {};

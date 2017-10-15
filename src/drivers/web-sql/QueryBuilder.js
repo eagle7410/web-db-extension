@@ -98,9 +98,18 @@ export default class Query {
 		return text;
 	}
 
-	insertValues (arInsert) {
+	escapeFieldValue (val) {
+		if (typeof val === 'string') return `"${val.replace(/\"/g, '\"')}"`;
+		if (val === null) return 'NULL';
+
+		return val;
+	}
+
+	insertValues (arInsert, fields) {
 		const insertSerial = (insert) => {
-			return `(${insert.join(',')})`;
+			return `(${
+				fields.map((field, inx) => this.escapeFieldValue(insert[inx] || null)).join(',')
+			})`;
 		};
 
 		if (Array.isArray(arInsert[0])) {
