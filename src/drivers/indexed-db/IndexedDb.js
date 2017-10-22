@@ -101,7 +101,7 @@ export default class IndexedDb extends DriverInterface {
 			data.auto = data.pk && data.auto === undefined ? true : data.auto;
 
 			if (data.pk) {
-				store = db.createObjectStore(table, {keyPath: fieldName});
+				store = db.createObjectStore(table, {keyPath: fieldName, autoIncrement: true });
 			} else if (data.require) {
 				fieldsIndexs[fieldName + '_inx'] = {field: fieldName};
 			}
@@ -143,10 +143,11 @@ export default class IndexedDb extends DriverInterface {
 			let transaction = that._db.transaction(table, that._modeRewrite());
 			let store = transaction.objectStore(table);
 
+
 			if (Array.isArray(arObjInsert)) {
-				arObjInsert.forEach(insert => store.add(insert));
+				arObjInsert.forEach(insert => store.put(insert));
 			} else {
-				store.add(arObjInsert);
+				store.put(arObjInsert);
 			}
 
 			transaction.oncomplete = ok;
