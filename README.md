@@ -140,7 +140,7 @@ const differentDrive = async () => {
 
 $(function () {
     "use strict";
-    let db = new BrowerDataBaseClass();
+    let db = new BrowserDataBaseClass();
     let $frame = $('#frame');
   
 		doit(db, $frame);

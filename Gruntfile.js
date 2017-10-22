@@ -6,7 +6,7 @@ module.exports = function (grunt) {
 	grunt.initConfig({
 		jsdoc2md: {
 			oneOutputFile: {
-				src: ['src/BrowerDataBase.js'],
+				src: ['src/BrowserDataBase.js'],
 				dest: 'Api.md'
 			}
 

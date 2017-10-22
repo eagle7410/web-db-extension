@@ -6,11 +6,11 @@ import DriverInterface from './drivers/DriverInterface'
  * Class for work this browsers databases.
  * @class
  */
-class BrowerDataBaseClass {
+class BrowserDataBaseClass {
 	constructor(params = {}, driver) {
 		const that = this;
 
-		let constant = BrowerDataBaseClass.driverConst();
+		let constant = BrowserDataBaseClass.driverConst();
 
 		switch (driver) {
 			case constant.WebSQL:
@@ -186,5 +186,5 @@ class BrowerDataBaseClass {
 	}
 }
 
-window.BrowerDataBaseClass = BrowerDataBaseClass;
+window.BrowserDataBaseClass = BrowserDataBaseClass;
 

@@ -128,8 +128,8 @@ let doit = async (db, $setTo) => {
 };
 
 const differentDrive = async () => {
-	let db = new BrowerDataBaseClass();
-	let driveConst = BrowerDataBaseClass.driverConst();
+	let db = new BrowserDataBaseClass();
+	let driveConst = BrowserDataBaseClass.driverConst();
 	let $frame = $('#frame');
 	let $setAuto = $('#auto');
 	let $setWebsql = $('#web_sql');
@@ -141,10 +141,10 @@ const differentDrive = async () => {
 
 	await doit(db, $setAuto);
 
-	db = new BrowerDataBaseClass({}, driveConst.IndexedDb);
+	db = new BrowserDataBaseClass({}, driveConst.IndexedDb);
 	await doit(db, $setInndexedDb);
 
-	db = new BrowerDataBaseClass({}, driveConst.WebSQL);
+	db = new BrowserDataBaseClass({}, driveConst.WebSQL);
 	await doit(db, $setWebsql);
 };
 

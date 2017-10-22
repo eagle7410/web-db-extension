@@ -4,7 +4,7 @@ const path = require('path');
 const MinifyPlugin = require("babel-minify-webpack-plugin");
 
 module.exports = {
-	entry: __dirname +"/src/BrowerDataBase.js",
+	entry: __dirname +"/src/BrowserDataBase.js",
 	output: {
 		path: __dirname + "/dist",
 		filename: "browser.database.min.js"
