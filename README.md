@@ -2,7 +2,10 @@
 Database in browser.
 
 ### Script for include ./dist/brower.database.min.js
-Example file in ./dist/index.html  
+Example file in ./dist/index.html
+  
+### Api 
+[Api description](https://github.com/eagle7410/web-db-extension/blob/master/Api.md)
 
 ### Example:
 ```js
@@ -149,7 +152,7 @@ $(function () {
 ```  
 ### Version
 1.0.0   
-[Api description](https://github.com/eagle7410/web-db-extension/blob/master/Api.md)   
+   
 ---
 ### People
 
