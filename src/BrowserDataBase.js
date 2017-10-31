@@ -186,5 +186,15 @@ class BrowserDataBaseClass {
 	}
 }
 
-window.BrowserDataBaseClass = BrowserDataBaseClass;
+//Include as js
+if (window) {
+	window.BrowserDataBaseClass = BrowserDataBaseClass;
+//Include from npm
+} else if (typeof module !== 'undefined' && module.exports) {
+	exports = module.exports = BrowserDataBaseClass;
+// AMD support
+} else if (typeof define === 'function' && define.amd) {
+	define(function () { return BrowserDataBaseClass; });
+}
+
 

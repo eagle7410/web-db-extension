@@ -1,0 +1,15 @@
+{
+  "name": "web-sql-extension",
+  "description": "Extension for web database use web-sql or inndexDb",
+  "main": "dist/browser.database.min.js",
+  "authors": [
+    "Igor Scherbina"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "web",
+    "sql",
+    "database"
+  ],
+  "homepage": "https://github.com/eagle7410/web-db-extension"
+}
