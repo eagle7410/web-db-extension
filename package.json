@@ -1,8 +1,9 @@
 {
+  "_id": "web-sql-extension@1.0.0",
   "name": "web-sql-extension",
   "version": "1.0.0",
   "description": "Extension for web sql",
-  "main": "build/wed.sql.js",
+  "main": "src/BrowserDataBase.js",
   "scripts": {
     "test": "./node_modules/.bin/karma start karma.conf.js",
     "babel-watch": "./node_modules/.bin/webpack --watch"
@@ -18,7 +19,7 @@
   "author": "Igor Scherbina",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/eagle7410/web-sql-extension/issues"
+    "url": "https://github.com/eagle7410/web-db-extension/issues"
   },
   "homepage": "https://github.com/eagle7410/web-sql-extension#readme",
   "devDependencies": {

@@ -1,9 +1,17 @@
 # web-db-extension
 Database in browser.
 
-### Script for include ./dist/brower.database.min.js
+### Script for include ./dist/brower.database.min.js 
 Example file in ./dist/index.html
-  
+
+### Install by bower
+```
+bower install web-sql-extension
+```
+### Install by npm 
+```
+npm install web-sql-extension --save
+```
 ### Api 
 [Api description](https://github.com/eagle7410/web-db-extension/blob/master/Api.md)
 
