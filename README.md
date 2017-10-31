@@ -6,7 +6,7 @@ Example file in ./dist/index.html
 
 ### Install by bower
 ```
-bower install web-sql-extension
+bower install web-db-extension
 ```
 ### Install by npm 
 ```
