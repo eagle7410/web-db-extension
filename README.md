@@ -10,7 +10,7 @@ bower install web-db-extension
 ```
 ### Install by npm 
 ```
-npm install web-sql-extension --save
+npm install web-db-extension --save
 ```
 ### Api 
 [Api description](https://github.com/eagle7410/web-db-extension/blob/master/Api.md)
