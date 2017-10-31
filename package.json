@@ -1,8 +1,8 @@
 {
   "_id": "web-sql-extension@1.0.0",
   "name": "web-sql-extension",
-  "version": "1.0.0",
-  "description": "Extension for web sql",
+  "version": "1.0.1",
+  "description": "Extension for web database",
   "main": "src/BrowserDataBase.js",
   "scripts": {
     "test": "./node_modules/.bin/karma start karma.conf.js",
@@ -10,11 +10,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eagle7410/web-sql-extension.git"
+    "url": "git+https://github.com/eagle7410/web-db-extension.git"
   },
   "keywords": [
     "web",
-    "sql"
+    "sql",
+    "database"
   ],
   "author": "Igor Scherbina",
   "license": "MIT",
