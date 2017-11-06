@@ -1,7 +1,7 @@
 {
-  "_id": "web-db-extension@1.0.0",
+  "_id": "web-db-extension@1.0.1",
   "name": "web-db-extension",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Extension for web database",
   "main": "src/BrowserDataBase.js",
   "scripts": {

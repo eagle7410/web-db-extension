@@ -1,5 +1,6 @@
 {
   "name": "web-db-extension",
+  "varsion" : "1.0.1",
   "description": "Extension for web database use web-sql or inndexDb",
   "main": "dist/browser.database.min.js",
   "authors": [

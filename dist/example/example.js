@@ -146,8 +146,41 @@ const differentDrive = async () => {
 
 	db = new BrowserDataBaseClass({}, driveConst.WebSQL);
 	await doit(db, $setWebsql);
+
+
 };
 
+;
+window.URL = window.URL || window.webkitURL;
+
+//define a worker
+var worker = new Worker(
+	window.URL.createObjectURL(
+		new window.Blob([
+		"onmessage = function(e) { \
+			var sum = 1;\
+			\
+			for (var i = 1; i<1000000000; ++i) \
+				sum += i;\
+			console.log('sum is', sum);\
+			postMessage(sum)\
+		}"
+		], {type: 'javascript/text'})
+	)
+);
+// var sum = 1;
+//
+// for (var i = 1; i<100000000; ++i)
+// 	sum += i;
+console.log('sum is', sum);
+worker.onmessage = function (oEvent) {
+	console.log("Worker said : " + oEvent.data);
+};
+worker.postMessage('dd');
+
+
+// TODO: clear
+console.log('SEND');
 $(function () {
 	"use strict";
 	differentDrive();
